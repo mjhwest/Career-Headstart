@@ -68,4 +68,4 @@ User.init({
 
 );
 
-module.exports = UserX;
+module.exports = User;
