@@ -31,7 +31,7 @@ Employer.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'employer',
 }, );
 
 module.exports = Employer;
