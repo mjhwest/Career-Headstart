@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 //why is DataTypes above, not being declared?
 const sequelize = require('../config/connection');
 
-class Joblistings extends Model {}
+class JobListing extends Model {}
 
-Joblistings.init({
+JobListing.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -37,4 +37,4 @@ Joblistings.init({
         
 );
 
-module.exports = Joblistings; 
+module.exports = JobListing; 
