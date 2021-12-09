@@ -1,39 +1,39 @@
 const { Model, DataTypes } = require('sequelize');
-//why is DataTypes above, not being declared?
 const sequelize = require('../config/connection');
 
-// useful link
-// https://sequelize.org/master/manual/model-basics.html#data-types
+class Application extends Model {}
 
-
-class JobSeeker extends Model {}
-
-JobSeeker.init({
+Application.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        user_id: {
+        applicant_id: {
             type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
-        license: {
-            type: DataTypes.BOOLEAN,
             allowNull: false,
+            references: {
+                model: 'jobseeker',
+                key: 'id'
+            }
+        },
+        listing_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'joblisting',
+                key: 'id'
+            }
         }
     }, {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'jobseeker',
+        modelName: 'joblisting',
     },
 
 );
 
-module.exports = JobSeeker;
+module.exports = Application;
