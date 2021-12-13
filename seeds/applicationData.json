@@ -1,0 +1,15 @@
+[
+
+    {
+        "applicatoin_id": 1,
+        "listing_id": 1
+    },
+    {
+        "application_id": 2,
+        "listing_id": 2
+    },
+    {
+        "application_id": 3,
+        "listing_id": 3
+    }
+]

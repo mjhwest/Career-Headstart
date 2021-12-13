@@ -1,0 +1,24 @@
+[
+
+    {
+        "listed_by": 1,
+        "jobDescript": "We need people to work hard!",
+        "jobWage": "10000",
+        "jobLocation": "South Austrlia",
+        "workLoad": "Casual "
+    },
+    {
+        "listed_by": 2,
+        "jobDescript": "We need people to work night work!",
+        "jobWage": "15000",
+        "jobLocation": "Melbourne",
+        "workLoad": "Casual "
+    },
+    {
+        "listed_by": 3,
+        "jobDescript": "We need people to work during the day!",
+        "jobWage": "20000",
+        "jobLocation": "Tasmania",
+        "workLoad": "Full Time"
+    }
+]
