@@ -12,7 +12,13 @@
       rel="stylesheet"
     />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+      integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- Bootstrap core CSS -->
     <link
@@ -89,35 +95,6 @@
         </div>
       </div>
     </header>
-
-    <main>
-      <section id="login" class="login-register d-flex justify-content-center align-items-center">
-        <div class="container">
-            <div class="row d-flex">
-                <div class="offset-sm-3 col-sm-6">
-                    <div class="text-center login-heading">
-                        <h2>Login</h2>
-                    </div>
-                    <div class="card" id="form1">
-                        <div class="form-data" v-if="!submitted">
-                            
-                            <div class="forms-inputs mb-4"> <span>Email or username</span> <input autocomplete="off" type="text" v-model="email" v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}" v-on:blur="emailBlured = true">
-                                <div class="invalid-feedback">A valid email is required!</div>
-                            </div>
-                            <div class="forms-inputs mb-4"> <span>Password</span> <input autocomplete="off" type="password" v-model="password" v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}" v-on:blur="passwordBlured = true">
-                                <div class="invalid-feedback">Password must be 8 character!</div>
-                            </div>
-                            <div class="mb-3"> <button v-on:click.stop.prevent="submit" class="btn w-100">Login</button> </div>
-                        </div>
-                        <div class="success-data" v-else>
-                            <div class="text-center d-flex flex-column"> <i class='bx bxs-badge-check'></i> <span class="text-center fs-1">You have been logged in <br> Successfully</span> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </section>
-    </main>
 
     <footer>
       <!-- ===== Start of Footer Copyright Section ===== -->

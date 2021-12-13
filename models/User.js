@@ -42,6 +42,10 @@ User.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
+    isEmployer: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+    }
 
 }, {
     hooks: {

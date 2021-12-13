@@ -1,0 +1,19 @@
+[
+    {
+    "firstName": "Sally",
+    "lastName": "Smith",
+    "password": "sally123456",
+    "email": "sally@email.com",
+    "age": 20,
+    "isEmployer": false
+},
+{
+    "firstName": "Tom",
+    "lastName": "Trumper",
+    "password": "tom123456",
+    "email": "tom@email.com",
+    "age": 30,
+    "isEmployer": true
+}
+
+] 
