@@ -1,0 +1,60 @@
+.login-register {
+  min-height: calc(100vh - 119px - 116px);
+  background: $light-grey;
+  padding: 3rem 0;
+  .login-heading {
+      background: $primary-color;
+      padding: 0.75rem;
+      border-radius: .25rem .25rem 0 0;
+      text-transform: uppercase;
+    h2 {
+      color: $plain-color;
+      margin-bottom: 0;
+    }
+  }
+  .card {
+      border-radius: 0 0 .25rem .25rem;
+    border: none;
+    padding: 3rem 3rem 2rem;
+    border: 1px solid $light-grey;
+
+    .forms-inputs {
+      position: relative;
+      span {
+        position: absolute;
+        top: -.725rem;
+        left: 10px;
+        background-color: $plain-color;
+        padding: 5px 10px;
+        font-size: 15px;
+      }
+      input {
+        height: 3.125rem;
+        border: 2px solid $light-grey;
+        &:focus {
+          box-shadow: none;
+          outline: none;
+          border: 2px solid $dark;
+        }
+        &.is-invalid {
+          border-color: $danger;
+        }
+      }
+    }
+    .btn {
+      height: 3.125rem;
+      background: $primary-color;
+      color: $plain-color;
+      &:hover{
+          background-color: $secondary-color;
+      }
+    }
+    .success-data {
+      display: flex;
+      flex-direction: column;
+      .bxs-badge-check {
+        font-size: 90px;
+      }
+    }
+  }
+}
