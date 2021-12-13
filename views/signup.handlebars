@@ -16,6 +16,7 @@
                     <span>First Name</span>
                     <input
                       type="text"
+                      class="firstname-signup"
                       v-model="firstname"
                       v-bind:class="{'form-control':true, 'is-invalid' : !validFirstname(firstname) && firstnameBlured}"
                       v-on:blur="firstnameBlured = true"
@@ -28,6 +29,7 @@
                     <span>Last Name</span>
                     <input
                       type="text"
+                      class="lastname-signup"
                       v-model="lastname"
                       v-bind:class="{'form-control':true, 'is-invalid' : !validLastname(lastname) && lastnameBlured}"
                       v-on:blur="lastnameBlured = true"
@@ -40,6 +42,7 @@
                     <span>Email</span>
                     <input
                       type="text"
+                      class="email-signup"
                       v-model="email"
                       v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}"
                       v-on:blur="emailBlured = true"
@@ -52,6 +55,7 @@
                     <span>Password</span>
                     <input
                       type="password"
+                      class="password-signup"
                       v-model="password"
                       v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}"
                       v-on:blur="passwordBlured = true"
@@ -71,7 +75,8 @@
                     <div class="invalid-feedback">A valid age is required!</div>
                   </div>
                   <div class="mb-3">
-                    <button v-on:click.stop.prevent="submit" class="btn w-100">
+                    
+                    <button v-on:click.stop.prevent="submit"  class="signup-btn btn w-100">
                       Register
                     </button>
                   </div>
@@ -94,4 +99,4 @@
 {{> footer}}
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/signup.js"></script>
