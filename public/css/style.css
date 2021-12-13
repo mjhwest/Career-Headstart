@@ -232,6 +232,7 @@ footer {
     footer .social-btns a {
       color: #FFF; }
 
+
 .login-register {
   min-height: calc(100vh - 119px - 116px);
   background: #eee;
@@ -284,3 +285,4 @@ footer {
       flex-direction: column; }
       .login-register .card .success-data .bxs-badge-check {
         font-size: 90px; }
+
