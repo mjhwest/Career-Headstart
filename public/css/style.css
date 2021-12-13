@@ -231,3 +231,56 @@ footer {
     vertical-align: top; }
     footer .social-btns a {
       color: #FFF; }
+
+.login-register {
+  min-height: calc(100vh - 119px - 116px);
+  background: #eee;
+  padding: 3rem 0; }
+  .login-register .login-heading {
+    background: #0f4e7b;
+    padding: 0.75rem;
+    border-radius: .25rem .25rem 0 0;
+    text-transform: uppercase; }
+    .login-register .login-heading h2 {
+      color: #FFF;
+      margin-bottom: 0; }
+  .login-register .card {
+    border-radius: 0 0 .25rem .25rem;
+    border: none;
+    padding: 3rem 3rem 2rem;
+    border: 1px solid #eee; }
+    .login-register .card .forms-inputs {
+      position: relative; }
+      .login-register .card .forms-inputs span {
+        position: absolute;
+        top: -.725rem;
+        left: 10px;
+        background-color: #FFF;
+        padding: 5px 10px;
+        font-size: 15px; }
+      .login-register .card .forms-inputs input {
+        height: 3.125rem;
+        border: 2px solid #eee; }
+        .login-register .card .forms-inputs input:focus {
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          outline: none;
+          border: 2px solid #000; }
+        .login-register .card .forms-inputs input.is-invalid {
+          border-color: #dc3545; }
+    .login-register .card .btn {
+      height: 3.125rem;
+      background: #0f4e7b;
+      color: #FFF; }
+      .login-register .card .btn:hover {
+        background-color: #005fae; }
+    .login-register .card .success-data {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .login-register .card .success-data .bxs-badge-check {
+        font-size: 90px; }
