@@ -25,6 +25,28 @@ router.get('/', async (req,res) => {
     }
 });
 
+router.get('/jobs', async (req,res) => {
+    try {
+        const jobsData = await JobListing.findAll({
+            include: [
+                {
+                    model: Employer,
+                    attributes: ['companyName']
+                }
+            ]
+        });
+        const jobs = jobsData.map((job) => job.get({ plain: true }));
+
+        res.render('job', {
+            jobs,
+            logged_in: req.session.logged_in,
+            title: "Career HeadStart | Jobs"
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.get('/job/:id', async (req,res) => {
     try {
         const jobsData = await JobListing.findByPk(req.params.id, {
