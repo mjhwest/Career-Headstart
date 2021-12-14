@@ -45,76 +45,23 @@
         <div class="col-sm-12">
             <div class="job_listing">
             <ul>
+                {{#each jobs as |job|}}
                 <li class="single-listing">
                 <a href="#">
                     <span class="job_listing-position">
-                    <h4>Art Director</h4>
-                    <p>University of Adelaide</p>
+                    <h4>{{jobDescript}}</h4>
+                    <p>{{employer.companyName}}</p>
                     </span>
-                    <span class="job_location">Adelaide</span>
+                    <span class="job_location">{{jobLocation}}</span>
                     <span class="job_type"
                     ><small class="button-type part-time"
-                        >Part Time</small
+                        >{{workLoad}}</small
                     ></span
                     >
                 </a>
                 </li>
-                <li class="single-listing">
-                <a href="#">
-                    <span class="job_listing-position">
-                    <h4>Web Designer</h4>
-                    <p>University of South Australia</p>
-                    </span>
-                    <span class="job_location">Adelaide</span>
-                    <span class="job_type"
-                    ><small class="button-type full-time"
-                        >Full Time</small
-                    ></span
-                    >
-                </a>
-                </li>
-                <li class="single-listing">
-                <a href="#">
-                    <span class="job_listing-position">
-                    <h4>Front End Developer</h4>
-                    <p>Digital Arts</p>
-                    </span>
-                    <span class="job_location">Adelaide</span>
-                    <span class="job_type"
-                    ><small class="button-type freelance"
-                        >Freelance</small
-                    ></span
-                    >
-                </a>
-                </li>
-                <li class="single-listing">
-                <a href="#">
-                    <span class="job_listing-position">
-                    <h4>Art Director</h4>
-                    <p>University of Adelaide</p>
-                    </span>
-                    <span class="job_location">Adelaide</span>
-                    <span class="job_type"
-                    ><small class="button-type part-time"
-                        >Part Time</small
-                    ></span
-                    >
-                </a>
-                </li>
-                <li class="single-listing">
-                <a href="#">
-                    <span class="job_listing-position">
-                    <h4>Back End Developer</h4>
-                    <p>SAPOL</p>
-                    </span>
-                    <span class="job_location">Adelaide</span>
-                    <span class="job_type"
-                    ><small class="button-type full-time"
-                        >Full Time</small
-                    ></span
-                    >
-                </a>
-                </li>
+                {{/each}}
+                
             </ul>
             </div>
         </div>

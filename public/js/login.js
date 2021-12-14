@@ -11,7 +11,7 @@ var app = new Vue({
             firstname: "",
             firstnameBlured: false,
             lastname: "",
-            lasttnameBlured: false,
+            lastnameBlured: false,
             age: "",
             ageBlured: false,
         };

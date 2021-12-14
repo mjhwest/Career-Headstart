@@ -3,17 +3,36 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 class JobListing extends Model {}
 JobListing.init({
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-    listed_by: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'employer',
-            key: 'id',
+
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        listed_by: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'employer',
+                key: 'id',
+            },
+        jobTitle: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
+        },
+        jobDescript: {
+            //text so the employer can write a big description for job.
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        jobWage: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        jobLocation: {
+            type: DataTypes.TEXT,
+            allowNull: false,
         },
     },
     jobDescript: {

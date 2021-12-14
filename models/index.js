@@ -8,6 +8,7 @@ const Application = require('./Application');
 User.hasOne(Employer, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
+  
 });
 
 Employer.belongsTo(User, {

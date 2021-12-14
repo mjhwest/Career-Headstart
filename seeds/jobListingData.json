@@ -1,7 +1,7 @@
 [
-
     {
         "listed_by": 1,
+        "jobTitle": "Head Worker",
         "jobDescript": "We need people to work hard!",
         "jobWage": "10000",
         "jobLocation": "South Austrlia",
@@ -9,6 +9,7 @@
     },
     {
         "listed_by": 2,
+        "jobTitle": "Night Shift Manager",
         "jobDescript": "We need people to work night work!",
         "jobWage": "15000",
         "jobLocation": "Melbourne",
@@ -16,6 +17,7 @@
     },
     {
         "listed_by": 3,
+        "jobTitle": "Day Logistics Manager",
         "jobDescript": "We need people to work during the day!",
         "jobWage": "20000",
         "jobLocation": "Tasmania",
