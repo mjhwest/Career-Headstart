@@ -14,7 +14,7 @@ router.get('/', async (req,res) => {
         });
 
         const jobs = jobsData.map((job) => job.get({ plain: true }));
-
+        console.log(jobs)
         res.render('homepage', {
             jobs,
             logged_in: req.session.logged_in,

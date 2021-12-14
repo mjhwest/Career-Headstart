@@ -1,102 +1,81 @@
 {{> nav}}
-   <main>
-      <section
-        id="register"
-        class="login-register d-flex justify-content-center align-items-center"
-      >
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7">
-              <div class="text-center login-heading">
-                <h2>Register Now</h2>
+<main>
+  <section id="login" class="login-register d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+          <div class="text-center login-heading">
+            <h2>Register Now</h2>
+          </div>
+          <div class="card" id="signup-form">
+            <div class="form-data" v-if="!submitted">
+              <div class="forms-inputs mb-4"> <span>First Name</span> <input class="firstname-signup" type="text"
+                  v-model="firstname"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validFirstname(firstname) && firstnameBlured}"
+                  v-on:blur="firstnameBlured = true">
+                <div class="invalid-feedback">A valid First Name is required!</div>
               </div>
-              <div class="card" id="form1">
-                <div class="form-data" v-if="!submitted">
-                  <div class="forms-inputs mb-4">
-                    <span>First Name</span>
-                    <input
-                      type="text"
-                      class="firstname-signup"
-                      v-model="firstname"
-                      v-bind:class="{'form-control':true, 'is-invalid' : !validFirstname(firstname) && firstnameBlured}"
-                      v-on:blur="firstnameBlured = true"
-                    />
-                    <div class="invalid-feedback">
-                      A valid First Name is required!
-                    </div>
-                  </div>
-                  <div class="forms-inputs mb-4">
-                    <span>Last Name</span>
-                    <input
-                      type="text"
-                      class="lastname-signup"
-                      v-model="lastname"
-                      v-bind:class="{'form-control':true, 'is-invalid' : !validLastname(lastname) && lastnameBlured}"
-                      v-on:blur="lastnameBlured = true"
-                    />
-                    <div class="invalid-feedback">
-                      A valid Last Name is required!
-                    </div>
-                  </div>
-                  <div class="forms-inputs mb-4">
-                    <span>Email</span>
-                    <input
-                      type="text"
-                      class="email-signup"
-                      v-model="email"
-                      v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}"
-                      v-on:blur="emailBlured = true"
-                    />
-                    <div class="invalid-feedback">
-                      A valid email is required!
-                    </div>
-                  </div>
-                  <div class="forms-inputs mb-4">
-                    <span>Password</span>
-                    <input
-                      type="password"
-                      class="password-signup"
-                      v-model="password"
-                      v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}"
-                      v-on:blur="passwordBlured = true"
-                    />
-                    <div class="invalid-feedback">
-                      Password must be 8 character!
-                    </div>
-                  </div>
-                  <div class="forms-inputs mb-4">
-                    <span>Age</span>
-                    <input
-                      type="text"
-                      v-model="age"
-                      v-bind:class="{'form-control':true, 'is-invalid' : !validAge(age) && ageBlured}"
-                      v-on:blur="ageBlured = true"
-                    />
-                    <div class="invalid-feedback">A valid age is required!</div>
-                  </div>
-                  <div class="mb-3">
-                    
-                    <button v-on:click.stop.prevent="submit"  class="signup-btn btn w-100">
-                      Register
-                    </button>
-                  </div>
-                </div>
-                <div class="success-data" v-else>
-                  <div class="text-center d-flex flex-column">
-                    <i class="bx bxs-badge-check"></i>
-                    <span class="text-center fs-3"
-                      >Your account has been successfully <br />
-                      created</span
-                    >
-                  </div>
-                </div>
+              <div class="forms-inputs mb-4"> <span>Last Name</span> <input id="lastname-signup" type="text"
+                  v-model="lastname"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validLastname(lastname) && lastnameBlured}"
+                  v-on:blur="lastnameBlured = true">
+                <div class="invalid-feedback">A valid Last Name is required!</div>
               </div>
+              <div class="forms-inputs mb-4"> <span>Email</span> <input id="email-signup" type="text" v-model="email"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}"
+                  v-on:blur="emailBlured = true">
+                <div class="invalid-feedback">A valid email is required!</div>
+              </div>
+              <div class="forms-inputs mb-4"> <span>Password</span> <input id="password-signup" type="password"
+                  v-model="password"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}"
+                  v-on:blur="passwordBlured = true">
+                <div class="invalid-feedback">Password must be 8 character!</div>
+              </div>
+              <div class="forms-inputs mb-4"> <span>Age</span> <input id="age-signup" type="text" v-model="age"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validAge(age) && ageBlured}"
+                  v-on:blur="ageBlured = true">
+                <div class="invalid-feedback">A valid age is required!</div>
+              </div>
+              <div class="forms-inputs mb-4"> <span>Register as</span>
+                <select id="isEmployer-signup" v-model="isEmployer" class="form-control form-select">
+                  <option v-bind:value="false">Candidate</option>
+                  <option v-bind:value="true">Employer</option>
+                </select>
+              </div>
+              <div class="forms-inputs mb-4" v-if="isEmployer"> <span>Company Name</span> <input class="company-signup"
+                  type="text" v-model="companyName"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validCompanyName(companyName) }">
+                <div class="invalid-feedback">A valid Company Name is required!</div>
+              </div>
+              <div class="forms-inputs mb-4" v-if="isEmployer"> <span>Phone Number</span> <input class="phone-signup"
+                  type="text" v-model="phoneNumber"
+                  v-bind:class="{'form-control':true, 'is-invalid' : !validPhoneNumber(phoneNumber) }">
+                <div class="invalid-feedback">A valid Phone Number is required!</div>
+              </div>
+
+
+              <div class="forms-inputs mb-4" v-else="isEmployer"> <span>Do you have a car license?</span>
+                <select id="license-signup" v-model="license" class="form-control form-select">
+                  <option v-bind:value="true">Yes</option>
+                  <option v-bind:value="false">No</option>
+                </select>
+              </div>
+              <div class="mb-3"> <button v-on:click.stop.prevent="submit" type="submit" id="signup-btn"
+                  class="btn w-100">Register</button> </div>
+            </div>
+            <div class="success-data" v-else>
+              <div class="text-center d-flex flex-column"> <i class='bx bxs-badge-check'></i> <span
+                  class="text-center fs-3">Your has been created <br> Successfully</span> </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
+  </section>
+</main>
+
 {{> footer}}
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="./js/signup.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="/js/signup.js"></script>
