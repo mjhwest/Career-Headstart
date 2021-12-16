@@ -72,16 +72,25 @@ router.get('/profile', withAuth, async (req,res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
           attributes: { exclude: ['password'] },
-          include: [{ model: Application }, { model: JobListing }] 
+          include: [{ model: JobSeeker }, { model: Employer }] 
         });
 
         const user = userData.get({ plain: true });
+        console.log(user)
+        if (user.isEmployer){
+            res.render('profile-employer', {
+                ...user,
+                logged_in: true
+            });
+        } else {
+            res.render('profile-jobseeker', {
+                ...user,
+                logged_in: true
+            });
+        }
 
-        res.render('profile', {
-            ...user,
-            logged_in: true
-        });
     } catch(err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -103,4 +112,25 @@ router.get('/signup', (req,res) => {
     res.render('signup');
 });
 
+router.get('/dashboard', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: JobSeeker,
+                include: [{ model: Application }]
+            }]
+        })
+
+        const user = userData.get({ plain: true });
+        console.log(user)
+        res.render('dash-jobSeeker', {
+            ...user,
+            logged_in: true,
+            title: "Dashboard",
+        })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+})
 module.exports = router;
