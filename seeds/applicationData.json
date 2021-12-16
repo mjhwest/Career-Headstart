@@ -1,5 +1,4 @@
-[
-    {
+[{
         "applicant_id": 1,
         "listing_id": 1
     },
@@ -11,4 +10,4 @@
         "applicant_id": 3,
         "listing_id": 3
     }
-] 
+]

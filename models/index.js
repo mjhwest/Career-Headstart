@@ -8,7 +8,7 @@ const Application = require('./Application');
 User.hasOne(Employer, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
-  
+
 });
 
 Employer.belongsTo(User, {
@@ -41,7 +41,7 @@ JobListing.belongsToMany(JobSeeker, {
         model: Application,
         unique: true,
     },
-    as : 'applicants',
+    as: 'applicants',
     foreignKey: 'applicant_id'
 });
 
@@ -55,6 +55,12 @@ JobListing.belongsTo(Employer, {
     foreignKey: 'listed_by'
 });
 
+Application.belongsTo(JobSeeker, {
+    foreignKey: 'applicant_id'
+})
 
+Application.belongsTo(JobListing, {
+    foreignKey: 'listing_id'
+})
 
 module.exports = { User, Employer, JobSeeker, JobListing, Application }
