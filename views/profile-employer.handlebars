@@ -1,3 +1,130 @@
 {{> nav}}
+<main>
+    <section id="dashboard">
+        <div class="container-full h-100 d-flex">
+            <div class="dashboard-nav">
+                <div class="dashboard-profile-box">
+                    <h2>Welcome, <span>{{firstName}}</span></h2>
+                </div>
+                <div class="dashboard-main-nav">
+                    <ul>
+                        <li>
+                            <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-main-page">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="profile-title">
+                            <h2>My Profile</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="profile-page">
+                            <div id="profile_employer" class="profile-box">
+                                <div class="login-heading">
+                                    <h3>Profile Details</h3>
+                                </div>
+                                <div class="card">
+                                    <div class="form-data" v-if="!submitted">
+                                        <div class="forms-inputs mb-4">
+                                            <span>First Name</span>
+                                            <input type="text" v-model="firstname"
+                                                v-bind:class="{'form-control':true, 'is-invalid' : !validFirstname(firstname) && firstnameBlured}"
+                                                v-on:blur="firstnameBlured = true" class="form-control"
+                                                placeholder="{{firstName}}" />
+                                            <div class="invalid-feedback">A valid First Name is required!</div>
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>Last Name</span>
+                                            <input type="text" v-model="lastname"
+                                                v-bind:class="{'form-control':true, 'is-invalid' : !validLastname(lastname) && lastnameBlured}"
+                                                v-on:blur="lastnameBlured = true" class="form-control"
+                                                placeholder="{{lastName}}" />
+                                            <div class="invalid-feedback">A valid Last Name is required!</div>
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>Email</span>
+                                            <input type="text" v-model="email" class="form-control"
+                                                v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}"
+                                                v-on:blur="emailBlured = true" placeholder="{{email}}" />
+                                            <div class="invalid-feedback">A valid email is required!</div>
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>Company Name</span>
+                                            <input type="text" v-model="companyname"
+                                                v-bind:class="{'form-control':true, 'is-invalid' : !validCompanyname(companyname) && companynameBlured}"
+                                                v-on:blur="companynameBlured = true"
+                                                placeholder="{{employer.companyName}}" />
+                                            <div class="invalid-feedback">
+                                                A valid Company Name is required!
+                                            </div>
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>Phone Number</span>
+                                            <input type="text" v-model="phonenumber"
+                                                v-bind:class="{'form-control':true, 'is-invalid' : !validPhonenumber(phonenumber) && phonenumberBlured}"
+                                                v-on:blur="phonenumberBlured = true"
+                                                placeholder="{{employer.phoneNumber}}" />
+                                            <div class=" invalid-feedback">
+                                                A valid Phone Number is required!
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <button v-on:click.stop.prevent="submit" class="btn w-100">
+                                                Edit Profile
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="success-data" v-else>
+                                        <div class="text-center d-flex flex-column">
+                                            <i class="bx bxs-badge-check"></i>
+                                            <span class="text-center fs-3">Your has been created <br />
+                                                Successfully</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- <div class="col-sm-12">
+                        <div class="profile-page">
+                            <div id="profile_employer" class="profile-box">
+                                <div class="login-heading">
+                                    <h3>Delete Account</h3>
+                                </div>
+                                <div class="card">
+                                    <p class="mb-5">Before you delete your account, remember that all of your data will
+                                        also be deleted. This action can not be undone!</p>
+                                    <div class="form-data">
+                                        <div class="forms-inputs mb-4"> <span>Current Password</span> <input
+                                                autocomplete="off" type="password" class="form-control">
+
+                                        </div>
+                                        <div class="mb-3"> <button v-on:click.stop.prevent="submit"
+                                                class="btn w-100">Delete
+                                                Account</button> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 {{> footer}}
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="/js/profile-employer.js"></script>
