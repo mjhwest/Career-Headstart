@@ -20,7 +20,21 @@ The project had to include the following:
 
 Our motivation was to make an application that highlighted all the skills and knowledge we have learnt so far in our web-development journey. 
 
-FINISH DESCRIPTION HERE **********************************************************************
+As a team we decided to build a full-stack employment based web-application called **Career Headstart**. The application allows a user to signup as one of two categories, either an employer (i.e looking to hire a worker) or a candidate (i.e. looking for work), depending on which option they select additional sign up inputs will be required.
+
+There were a number of problems that had to be resolved in order to successfuly launch the web-application **Career Headstart**. 
+To view [career headstart and see how it works please click here](https://career-head-start.herokuapp.com/)
+
+ 1) Ensuring all the relationships between the databases were correctly assigned. 
+ 2) Understading and implementing git branching, mergings while working in a team enviroment.
+ 3) Ensuring that all memebers of the project understood the desired outcome and were able to efficiently work towards this outcome. 
+ 4) Ensuring the post signup route was correctly created so that a user could sign up as either an Employer or Candidate (i.e jobseeker). 
+ 5) That all routes were successfully functioning. 
+ 
+
+ Depsite these probems we were able to overcome them to successfully create and launch our application. In doing so we learnt many skills that will help us to further develop as web developers. 
+
+ Overall, creating **Career Headstaer** was a great experience that allowed each team member to apply the skills and knoweledge attained from our learning experience thus far. 
 
 
 ## Table of Contents
@@ -31,6 +45,7 @@ FINISH DESCRIPTION HERE ********************************************************
 - [Credits](#credits)
 - [License](#license)
 - [Contribute](#contribute)
+
 
 ## Installation
 Once the user has cloned the project from GitHub there are a few steps they must undertake in order to get the application running.
@@ -71,6 +86,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 - NodeMailer 
 - path
 - sequelize 
+- sass
+- vue
 
 ## Credits
 The collaborators for this project were: 
