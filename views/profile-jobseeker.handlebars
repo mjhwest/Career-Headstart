@@ -1,0 +1,117 @@
+{{> nav}}
+<main>
+    <section id="dashboard">
+        <div class="container-full h-100 d-flex">
+            <div class="dashboard-nav">
+                <div class="dashboard-profile-box">
+                    <h2>Welcome, <span>{{firstName}}</span></h2>
+                </div>
+                <div class="dashboard-main-nav">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-fw fa-bell"></i>My Jobs</a>
+                        </li>
+                        <li>
+                            <a href="./post-job.html"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-main-page">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="profile-title">
+                            <h2>My Profile</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="profile-page">
+                            <div id="profile_candidate" class="profile-box">
+                                <div class="login-heading">
+                                    <h3>Profile Details</h3>
+                                </div>
+                                <div class="card">
+                                    <div class="form-data" v-if="!submitted">
+                                        <div class="forms-inputs mb-4">
+                                            <span>First Name</span>
+                                            <input type="text" class="form-control" value="{{firstName}}" />
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>Last Name</span>
+                                            <input type="text" class="form-control" value="{{lastName}}" />
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>Email</span>
+                                            <input type="text" class="form-control" value="{{email}}" />
+                                        </div>
+                                        <div class="forms-inputs mb-4">
+                                            <span>License</span>
+                                            <select id="license-signup" v-model="license"
+                                                class="form-control form-select">
+                                                <option v-bind:value="true">Yes</option>
+                                                <option v-bind:value="false">No</option>
+                                            </select>
+                                            {{!-- <input type="text" v-model="license"
+                                                v-bind:class="{'form-control':true, 'is-invalid' : !validLicense(license) && licenseBlured}"
+                                                v-on:blur="licenseBlured = true" value="{{jobseeker.license}}" /> --}}
+                                            <div class="invalid-feedback">
+                                                A valid License is required!
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <button v-on:click.stop.prevent="submit" class="btn w-100">
+                                                Edit Profile
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="success-data" v-else>
+                                        <div class="text-center d-flex flex-column">
+                                            <i class="bx bxs-badge-check"></i>
+                                            <span class="text-center fs-3">Your profile has been edited <br />
+                                                Successfully</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- <div class="col-sm-12">
+                        <div class="profile-page">
+                            <div id="profile_employer" class="profile-box">
+                                <div class="login-heading">
+                                    <h3>Delete Account</h3>
+                                </div>
+                                <div class="card">
+                                    <p class="mb-5">Before you delete your account, remember that all of your data will
+                                        also be deleted. This action can not be undone!</p>
+                                    <div class="form-data">
+                                        <div class="forms-inputs mb-4"> <span>Current Password</span> <input
+                                                autocomplete="off" type="password" class="form-control">
+
+                                        </div>
+                                        <div class="mb-3"> <button v-on:click.stop.prevent="submit"
+                                                class="btn w-100">Delete Account</button> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{{> footer}}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="/js/profile-candidate.js"></script>
