@@ -6,6 +6,8 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
+const { sendStatus } = require('express/lib/response');
+const sendApplicationAlert = require('./nodemail');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
@@ -36,4 +38,5 @@ app.use(routes);
 
 sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
+    sendApplicationAlert(1)
 });

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Headstart</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container container">
+            <!-- ====== Start of Logo ====== -->
+            <div class="logo">
+                <a class="navbar-brand logo-wrapper" href="#" title="Career Headstart" rel="home">
+                    <!-- INSERT YOUR LOGO HERE -->
+                    <img src="./images/logo.svg" alt="Career Headstart" class="logo" />
+                </a>
+            </div>
+            <!-- ====== End of Logo ====== -->
+            <div class="all-nav">
+                <!-- ====== Start of Main Menu ====== -->
+                <nav class="navbar navbar-expand-md">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- ====== End of Main Menu ====== -->
+
+                <div class="extra-menu">
+                    <div class="extra-menu-item extra-user">
+                        <a href="dashboard.html" class="user-account">
+                            <span class="avatar-img">
+                  <img
+                    alt=""
+                    src="https://secure.gravatar.com/avatar/e1366724d9b66b00d71a6aa17ac47e02?s=40&#038;d=mm&#038;r=g"
+                    class="avatar"
+                  />
+                </span>
+                            <span class="user-name"> Candidate </span>
+                        </a>
+
+                        <a href="#"><i class="icon-power"></i>Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <div class="container-full h-100 d-flex">
+                <div class="dashboard-nav">
+                    <div class="dashboard-profile-box">
+                        <h2>Welcome, <span>Employer</span></h2>
+                    </div>
+                    <div class="dashboard-main-nav">
+                        <ul>
+                            <li>
+                                <a href="#"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-fw fa-bell"></i>My Jobs</a>
+                            </li>
+                            <li>
+                                <a href="./post-job.html"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dashboard-main-page">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="profile-title">
+                                <h2>My Profile</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="profile-page">
+                                <div id="profile_employer" class="profile-box">
+                                    <div class="login-heading">
+                                        <h3>Profile Details</h3>
+                                    </div>
+                                    <div class="card">
+                                        <div class="form-data" v-if="!submitted">
+                                            <div class="forms-inputs mb-4">
+                                                <span>First Name</span>
+                                                <input type="text" class="form-control" value="Employer First Name" />
+                                            </div>
+                                            <div class="forms-inputs mb-4">
+                                                <span>Last Name</span>
+                                                <input type="text" class="form-control" value="Employer Last Name" />
+                                            </div>
+                                            <div class="forms-inputs mb-4">
+                                                <span>Email</span>
+                                                <input type="text" class="form-control" value="employer@email.com" />
+                                            </div>
+                                            <div class="forms-inputs mb-4">
+                                                <span>Company Name</span>
+                                                <input type="text" v-model="companyname" v-bind:class="{'form-control':true, 'is-invalid' : !validCompanyname(companyname) && companynameBlured}" v-on:blur="companynameBlured = true" />
+                                                <div class="invalid-feedback">
+                                                    A valid Company Name is required!
+                                                </div>
+                                            </div>
+                                            <div class="forms-inputs mb-4">
+                                                <span>Phone Number</span>
+                                                <input type="text" v-model="phonenumber" v-bind:class="{'form-control':true, 'is-invalid' : !validPhonenumber(phonenumber) && phonenumberBlured}" v-on:blur="phonenumberBlured = true" />
+                                                <div class="invalid-feedback">
+                                                    A valid Phone Number is required!
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <button v-on:click.stop.prevent="submit" class="btn w-100">
+                            Edit Profile
+                          </button>
+                                            </div>
+                                        </div>
+                                        <div class="success-data" v-else>
+                                            <div class="text-center d-flex flex-column">
+                                                <i class="bx bxs-badge-check"></i>
+                                                <span class="text-center fs-3">Your has been created <br />
+                            Successfully</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="profile-page">
+                  <div id="profile_employer" class="profile-box">
+                    <div class="login-heading">
+                      <h3>Delete Account</h3>
+                    </div>
+                    <div class="card">
+                      <p class="mb-5">Before you delete your account, remember that all of your data will also be deleted. This action can not be undone!</p>
+                      <div class="form-data">
+                        <div class="forms-inputs mb-4"> <span>Current Password</span> <input autocomplete="off" type="password" class="form-control">
+
+                                            </div>
+                                            <div class="mb-3"> <button v-on:click.stop.prevent="submit" class="btn w-100">Delete Account</button> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- ===== Start of Footer Copyright Section ===== -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <p>
+                            Copyright &copy; 2021. Developed by
+                            <a href="#" class="text-uppercase">Runtime Terror</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-end">
+                        <ul class="social-btns text-right">
+                            <li class="list-inline-item">
+                                <a class="social-facebook" href="#" target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="social-twitter" href="#" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="social-insta" href="#" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===== End of Footer Copyright Section ===== -->
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./js/profile-employer.js"></script>
+</body>
+
+</html>
