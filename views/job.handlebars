@@ -1,3 +1,49 @@
 {{> nav}}
+<main>
+    <section id="dashboard">
+        <div class="container-full h-100 d-flex">
+            <div class="dashboard-nav">
+                <div class="dashboard-profile-box">
+                    <h2>Welcome, <span>{{firstName}}</span></h2>
+                </div>
+                <div class="dashboard-main-nav">
+                    <ul>
+                        <li>
+                            <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-main-page">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="job-details">
+                            <h2>{{jobTitle}}</h2>
+                            <div class="card job_single">
+                                <h3>{{employer.companyName}}</h3>
+                                <div class="job_location">{{jobLocation}}</div>
+                                <div class="salary_jobtype">${{jobWage}} - {{workLoad}}</div>
+
+                                <div class="job-desc">
+                                    <p>{{jobDescript}}</p>
+
+
+                                    <button v-on:click.stop.prevent="submit" class="btn">APPLY</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 {{> footer}}

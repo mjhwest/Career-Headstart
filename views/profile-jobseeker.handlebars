@@ -9,16 +9,10 @@
                 <div class="dashboard-main-nav">
                     <ul>
                         <li>
-                            <a href="#"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                            <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-fw fa-bell"></i>My Jobs</a>
-                        </li>
-                        <li>
-                            <a href="./post-job.html"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                            <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
                         </li>
                     </ul>
                 </div>
@@ -43,15 +37,15 @@
                                     <div class="form-data" v-if="!submitted">
                                         <div class="forms-inputs mb-4">
                                             <span>First Name</span>
-                                            <input type="text" class="form-control" value="{{firstName}}" />
+                                            <input type="text" class="form-control" placeholder="{{firstName}}" />
                                         </div>
                                         <div class="forms-inputs mb-4">
                                             <span>Last Name</span>
-                                            <input type="text" class="form-control" value="{{lastName}}" />
+                                            <input type="text" class="form-control" placeholder="{{lastName}}" />
                                         </div>
                                         <div class="forms-inputs mb-4">
                                             <span>Email</span>
-                                            <input type="text" class="form-control" value="{{email}}" />
+                                            <input type="text" class="form-control" placeholder="{{email}}" />
                                         </div>
                                         <div class="forms-inputs mb-4">
                                             <span>License</span>

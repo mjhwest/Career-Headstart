@@ -14,12 +14,13 @@ JobListing.init({
             references: {
                 model: 'employer',
                 key: 'id',
-            },
+            }
+        },   
         jobTitle: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
         },
+
         jobDescript: {
             //text so the employer can write a big description for job.
             type: DataTypes.STRING,

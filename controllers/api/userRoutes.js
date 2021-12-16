@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const { Employer, JobSeeker } = require('../../models');
-const { create } = require('../../models/User');
-const User = require('../../models/User');
+const { Employer, JobSeeker, User } = require('../../models');;
 
 router.post('/signup', async(req, res) => {
     try {
@@ -86,4 +84,9 @@ router.post('/logout', (req, res) => {
     }
 });
 
+///////////// PUT /////////////
+
+router.put('/profile', (req,res) => {
+    
+})
 module.exports = router;

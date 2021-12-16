@@ -14,7 +14,6 @@ router.get('/', async (req,res) => {
         });
 
         const jobs = jobsData.map((job) => job.get({ plain: true }));
-        console.log(jobs)
         res.render('homepage', {
             jobs,
             logged_in: req.session.logged_in,
@@ -47,23 +46,28 @@ router.get('/jobs', async (req,res) => {
     }
 });
 
-router.get('/job/:id', async (req,res) => {
+router.get('/job/:id', withAuth, async (req,res) => {
     try {
         const jobsData = await JobListing.findByPk(req.params.id, {
-            include: [
-                {
-                    model: Employer,
-                    attributes: ['companyName']
-                }
-            ]
+            include: [{model: Employer}]
         });
 
         const job = jobsData.get({ plain:true });
+
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: JobSeeker }] 
+          });
+
+        const user = userData.get({ plain: true });
         res.render('job', {
             ...job,
-            logged_in: req.session.logged_in
+            ...user,
+            logged_in: req.session.logged_in,
+            title: job.jobTitle
         });
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -76,7 +80,7 @@ router.get('/profile', withAuth, async (req,res) => {
         });
 
         const user = userData.get({ plain: true });
-        console.log(user)
+
         if (user.isEmployer){
             res.render('profile-employer', {
                 ...user,
@@ -112,25 +116,4 @@ router.get('/signup', (req,res) => {
     res.render('signup');
 });
 
-router.get('/dashboard', withAuth, async (req,res) => {
-    try {
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: JobSeeker,
-                include: [{ model: Application }]
-            }]
-        })
-
-        const user = userData.get({ plain: true });
-        console.log(user)
-        res.render('dash-jobSeeker', {
-            ...user,
-            logged_in: true,
-            title: "Dashboard",
-        })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err);
-    }
-})
 module.exports = router;
