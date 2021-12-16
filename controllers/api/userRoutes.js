@@ -1,38 +1,56 @@
 const router = require('express').Router();
-const { Employer, JobSeeker, User } = require('../../models');;
+
+const { Employer, JobSeeker, Application, User } = require('../../models');
+const sendApplicationAlert = require('../../nodemail');
+
+
+//need to test
+router.post('/job/:id', async(req, res) => {
+    try {
+        const newApplication = await Application.create({
+            applicant_id: req.session.user_id,
+            listing_id: req.params.id
+        })
+        sendApplicationAlert(newApplication.id)
+        res.status(200).json(newApplication);
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+});
 
 router.post('/signup', async(req, res) => {
     try {
 
         const userData = await User.create(req.body);
 
-        if (req.body.isEmployer){
+        if (req.body.isEmployer) {
             try {
-            const employerData = await Employer.create(req.body)
-            await userData.setEmployer(employerData)
+                const employerData = await Employer.create(req.body)
+                await userData.setEmployer(employerData)
 
-            } catch(err) {
+            } catch (err) {
                 userData.destroy();
-                throw(err);
+                throw (err);
             }
 
         } else {
             try {
                 const jobSeekerData = await JobSeeker.create(req.body)
                 await userData.setJobseeker(jobSeekerData)
-    
-                } catch(err) {
-                    userData.destroy();
-                    throw(err);
-                }
+
+            } catch (err) {
+                userData.destroy();
+                throw (err);
+            }
         }
-        const createdUser = await User.findByPk(userData.id,{
+        const createdUser = await User.findByPk(userData.id, {
             include: [
-                Employer,JobSeeker
+                Employer, JobSeeker
             ]
         })
 
-        
+
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -44,6 +62,28 @@ router.post('/signup', async(req, res) => {
         res.status(400).json(err);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.post('/login', async(req, res) => {
     try {
@@ -84,9 +124,5 @@ router.post('/logout', (req, res) => {
     }
 });
 
-///////////// PUT /////////////
 
-router.put('/profile', (req,res) => {
-    
-})
 module.exports = router;
