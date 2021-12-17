@@ -1,5 +1,5 @@
-[
-    {
+[{
+        "id": 1,
         "listed_by": 1,
         "jobTitle": "Head Worker",
         "jobDescript": "We need people to work hard!",
@@ -8,6 +8,7 @@
         "workLoad": "Casual "
     },
     {
+        "id": 2,
         "listed_by": 2,
         "jobTitle": "Night Shift Manager",
         "jobDescript": "We need people to work night work!",
@@ -16,6 +17,7 @@
         "workLoad": "Casual "
     },
     {
+        "id": 3,
         "listed_by": 3,
         "jobTitle": "Day Logistics Manager",
         "jobDescript": "We need people to work during the day!",
