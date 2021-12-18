@@ -27,25 +27,6 @@ JobSeeker.belongsTo(User, {
 
 // ---------------------------------------------
 
-JobSeeker.belongsToMany(JobListing, {
-    through: {
-        model: Application,
-        unique: true,
-    },
-    as: 'applications',
-    foreignKey: 'listing_id'
-});
-
-JobListing.belongsToMany(JobSeeker, {
-    through: {
-        model: Application,
-        unique: true,
-    },
-    as: 'applicants',
-    foreignKey: 'applicant_id'
-});
-
-// ---------------------------------------------
 Employer.hasMany(JobListing, {
     foreignKey: 'listed_by',
     onDelete: 'CASCADE'
@@ -55,12 +36,26 @@ JobListing.belongsTo(Employer, {
     foreignKey: 'listed_by'
 });
 
-Application.belongsTo(JobSeeker, {
-    foreignKey: 'applicant_id'
-})
+// ---------------------------------------------
 
-Application.belongsTo(JobListing, {
+JobSeeker.belongsToMany(JobListing, {
+    through: {
+        model: Application,
+        unique: true,
+    },
+    as: 'applications',
+    foreignKey: 'applicant_id'
+});
+
+JobListing.belongsToMany(JobSeeker, {
+    through: {
+        model: Application,
+        unique: true,
+    },
+    as: 'applicants',
     foreignKey: 'listing_id'
-})
+});
+
+// ---------------------------------------------
 
 module.exports = { User, Employer, JobSeeker, JobListing, Application }

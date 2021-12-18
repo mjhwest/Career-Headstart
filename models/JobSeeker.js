@@ -25,7 +25,7 @@ JobSeeker.init({
         license: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-        }
+        },
     }, {
         sequelize,
         timestamps: false,

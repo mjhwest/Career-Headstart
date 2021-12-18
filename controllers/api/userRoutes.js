@@ -1,24 +1,9 @@
 const router = require('express').Router();
-const { Employer, JobSeeker, Application } = require('../../models');
-const { create } = require('../../models/User');
-const User = require('../../models/User');
+const { Employer, JobSeeker, Application, User } = require('../../models');
 const sendApplicationAlert = require('../../nodemail');
 
 
 //need to test
-router.post('/job/:id', async(req, res) => {
-    try {
-        const newApplication = await Application.create({
-            applicant_id: req.session.user_id,
-            listing_id: req.params.id
-        })
-        sendApplicationAlert(newApplication.id)
-        res.status(200).json(newApplication);
-    } catch (err) {
-        console.log(err)
-        res.status(400).json(err);
-    }
-});
 
 router.post('/signup', async(req, res) => {
     try {
@@ -45,12 +30,6 @@ router.post('/signup', async(req, res) => {
                 throw (err);
             }
         }
-        const createdUser = await User.findByPk(userData.id, {
-            include: [
-                Employer, JobSeeker
-            ]
-        })
-
 
         req.session.save(() => {
             req.session.user_id = userData.id;

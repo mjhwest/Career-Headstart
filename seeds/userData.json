@@ -5,7 +5,8 @@
         "password": "sally123456",
         "email": "sally@email.com",
         "age": 20,
-        "isEmployer": false
+        "isEmployer": false,
+        "license": true
     },
     {
         "id": 2,
@@ -14,7 +15,8 @@
         "password": "tom123456",
         "email": "tom@email.com",
         "age": 30,
-        "isEmployer": false
+        "isEmployer": false,
+        "license": true
     },
     {
 
@@ -24,7 +26,8 @@
         "password": "password123",
         "email": "bob@email.com",
         "age": 45,
-        "isEmployer": false
+        "isEmployer": false,
+        "license": true
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "password": "password123",
         "email": "roshan@email.com",
         "age": 30,
-        "isEmployer": true
+        "isEmployer": true,
+        "companyName": "Roshan Company"
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "password": "password123",
         "email": "michael@email.com",
         "age": 30,
-        "isEmployer": true
+        "isEmployer": true,
+        "companyName": "Michael Company"
     },
     {
         "id": 6,
@@ -51,6 +56,7 @@
         "password": "password",
         "email": "carl@email.com",
         "age": 30,
-        "isEmployer": true
+        "isEmployer": true,
+        "companyName": "Carl Company"
     }
 ]
