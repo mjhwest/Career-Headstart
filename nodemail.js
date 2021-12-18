@@ -1,71 +1,88 @@
-const req = require('express/lib/request');
-const res = require('express/lib/response');
-const nodemailer = require('nodemailer');
-const { Application, JobSeeker, User, JobListing, Employer } = require('./models')
+const req = require("express/lib/request");
+const res = require("express/lib/response");
+const nodemailer = require("nodemailer");
+const {
+  Application,
+  JobSeeker,
+  User,
+  JobListing,
+  Employer,
+} = require("./models");
 
-require('dotenv').config()
+require("dotenv").config();
 
-//step 1: create transporter, what connects to user service 
-//this is oly for gmail. 
+
+//step 1: create transporter, what connects to user service
+//this is oly for gmail.
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD
-    }
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
 });
 
 
+
 const constructEmail = (applicationJSON) => {
+  const employer = applicationJSON.joblisting.employer;
 
-    const employer = applicationJSON.joblisting.employer
+  const jobseeker = applicationJSON.jobseeker;
 
-    const jobseeker = applicationJSON.jobseeker
+  return {
+    from: "careerheadstartboss@gmail.com",
+    to: employer.user.email,
+    subject: "One New Job Application",
+    text: `Congratulations, ${employer.user.firstName}, 
+    
+        ${jobseeker.user.firstName} ${jobseeker.user.lastName} has applied for your advertised position ${applicationJSON.joblisting.jobTitle}.`,
+  };
+};
 
-    return {
-        from: 'careerheadstartboss@gmail.com',
-        to: employer.user.email,
-        subject: 'One New Job Application',
-        text: `Congratulations, ${employer.user.firstName}, 
-        
-        ${jobseeker.user.firstName} ${jobseeker.user.lastName} has applied for your advertised position ${applicationJSON.joblisting.jobTitle}.`
-    }
-}
 
-//make a function to get the user email info 
-const sendApplicationAlert = async(application_id) => {
+const sendApplicationAlert = async (application_id) => {
+  //load application
 
-    //load application
+  const loadedApplication = await Application.findByPk(application_id, {
+    include: [
+      {
+        model: JobSeeker,
+        include: [
+          {
+            model: User,
+          },
+        ],
+      },
+      {
+        model: JobListing,
+        include: [
+          {
+            model: Employer,
+            include: [
+              {
+                model: User,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
 
-    const loadedApplication = await Application.findByPk(application_id, {
-        include: [{
-                model: JobSeeker,
-                include: [{
-                    model: User,
-                }]
-            },
-            {
-                model: JobListing,
-                include: [{
-                    model: Employer,
-                    include: [{
-                        model: User,
-                    }]
-                }]
-            }
-        ]
-    })
-
-    const applicationJSON = loadedApplication.toJSON()
-        // console.log(JSON.stringify(loadedApplication.toJSON(), null, 4))
-    const mailOptions = constructEmail(applicationJSON)
-    transporter.sendMail(mailOptions, function(err, data) {
-        if (err) {
-            console.log('Error');
-        } else {
-            console.log('Email send');
-        }
-    })
-}
+  if (!loadedApplication) {
+      console.log("No application found in the DB")
+  } else {
+    const applicationJSON = loadedApplication.toJSON();
+    // console.log(JSON.stringify(loadedApplication.toJSON(), null, 4))
+    const mailOptions = constructEmail(applicationJSON);
+    transporter.sendMail(mailOptions, function (err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Email send");
+      }
+    });
+  }
+};
 
 module.exports = sendApplicationAlert;
