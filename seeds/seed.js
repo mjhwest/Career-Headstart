@@ -20,32 +20,29 @@ const seedDatabase = async() => {
     for (const employer of employerData) {
         await Employer.create({
             ...employer,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
         })
     }
 
     for (const jobseeker of jobSeekerData) {
         await JobSeeker.create({
             ...jobseeker,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
+
         })
     }
 
     for (const joblistings of jobListingData) {
         await JobListing.create({
             ...joblistings,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
         })
     }
 
     for (const application of applicationData) {
         await Application.create({
             ...application,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
         })
     }
 
-    const user = await JobSeeker.findByPk(1,{
+    const user = await JobSeeker.findByPk(1, {
         include: [User, 'applications']
     })
     console.log(user.get({ plain: true }));
@@ -53,5 +50,4 @@ const seedDatabase = async() => {
     process.exit(0)
 }
 
-seedDatabase(); 
-
+seedDatabase();

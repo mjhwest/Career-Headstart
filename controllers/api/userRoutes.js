@@ -1,6 +1,7 @@
 const router = require('express').Router();
-
-const { Employer, JobSeeker, Application, User } = require('../../models');
+const { Employer, JobSeeker, Application } = require('../../models');
+const { create } = require('../../models/User');
+const User = require('../../models/User');
 const sendApplicationAlert = require('../../nodemail');
 
 
@@ -64,27 +65,6 @@ router.post('/signup', async(req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.post('/login', async(req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
@@ -124,5 +104,26 @@ router.post('/logout', (req, res) => {
     }
 });
 
-
 module.exports = router;
+
+
+
+
+
+
+
+// update a profile name by its `id` valu
+//working
+// router.put('/:id', (req, res) => {
+//     Tag.update({
+//             tag_name: req.body.tag_name,
+//         }, {
+//             where: {
+//                 id: req.params.id,
+//             },
+//         })
+//         .then((updatedTag) => {
+//             res.json(updatedTag);
+//         })
+//         .catch((err) => res.json(err));
+// });
