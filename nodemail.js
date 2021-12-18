@@ -10,8 +10,7 @@ const {
 } = require("./models");
 
 require("dotenv").config();
-//we need this is config enviromental varaibles, i.e. transporter, i.e. the users email and password
-//need user email and password included in .env
+
 
 //step 1: create transporter, what connects to user service
 //this is oly for gmail.
@@ -23,19 +22,7 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-//step 2:
-//mail options, what do we want to send.
-//create an object
 
-// let mailOptions = {
-//     from: 'careerheadstartboss@gmail.com',
-//     to: userEmail, //THIS NEEDS TO BE THE EMPLOYER USER EMAIL
-//     subject: 'Job Application Success', //GENERIC SUBJECT TITLE
-//     text: '',
-// };
-//This is what the text will say:
-// Congratulations,
-// USER, firstName + lastName has applied for your advertised position (jobTitle).
 
 const constructEmail = (applicationJSON) => {
   const employer = applicationJSON.joblisting.employer;
@@ -52,18 +39,7 @@ const constructEmail = (applicationJSON) => {
   };
 };
 
-//step 3;
-//grab transporter
-//sendMail has 2 param, mailOptions and callback
-// transporter.sendMail(mailOptions, function(err, data) {
-//     if (err) {
-//         console.log('Error');
-//     } else {
-//         console.log('Email send');
-//     }
-// });
 
-//make a function to get the user email info
 const sendApplicationAlert = async (application_id) => {
   //load application
 
