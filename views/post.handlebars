@@ -1,0 +1,85 @@
+{{> nav}}
+
+<main>
+    <section id="dashboard">
+        <div class="container-full h-100 d-flex">
+            <div class="dashboard-nav">
+                <div class="dashboard-profile-box">
+                    <h2>Welcome, <span>Employer</span></h2>
+                </div>
+                <div class="dashboard-main-nav">
+                    <ul>
+                        <li>
+                            <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/post"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a>
+                        </li>
+                        <li>
+                            <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-main-page">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="post-jobs">
+                            <h2>Post a Job</h2>
+                            <div class="card" id="jobpostForm">
+                                <div class="form-data" v-if="!submitted">
+                                    <div class="forms-inputs mb-4"> <span>Job Title</span> <input type="text"
+                                            v-model="jobTitle"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validJobtitle(jobTitle) && jobTitleBlured}"
+                                            v-on:blur="jobTitleBlured = true">
+                                        <div class="invalid-feedback">A valid Job Title is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Job Description</span> <textarea name="" id=""
+                                            cols="" rows="10" v-model="jobDescript"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validJobdescription(jobDescript) && jobDescriptBlured}"
+                                            v-on:blur="jobDescriptBlured = true"></textarea>
+                                        <div class="invalid-feedback">A valid Job Description is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Location</span> <input type="text"
+                                            v-model="jobLocation"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validLocation(jobLocation) && jobLocationBlured}"
+                                            v-on:blur="jobLocationBlured = true">
+                                        <div class="invalid-feedback">A valid location is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Wage/Salary</span> <input type="text"
+                                            v-model="jobWage"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validWage(jobWage) && jobWageBlured}"
+                                            v-on:blur="jobWageBlured = true">
+                                        <div class="invalid-feedback">A valid wage/salary is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Job Type</span>
+                                        <select v-model="workLoad" class="form-control form-select type-select">
+                                            <option>Full Time</option>
+                                            <option>Part Time</option>
+                                            <option>Casual</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3"> <button v-on:click.stop.prevent="submit" type="submit"
+                                            class="btn w-100">Submit</button> </div>
+                                </div>
+                                <div class="success-data" v-else>
+                                    <div class="text-center d-flex flex-column"> <i class='bx bxs-badge-check'></i>
+                                        <span class="text-center fs-3">Your has been created <br> Successfully</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> footer}}
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="/js/postjob.js"></script>
