@@ -7,6 +7,7 @@ const {
   Employer,
 } = require("../../models");
 const withAuth = require("../../utils/auth");
+const sendApplicationAlert = require("../../nodemail");
 
 router.post("/", withAuth, async (req, res) => {
   try {
@@ -59,7 +60,7 @@ router.post("/application/:id", async (req, res) => {
       applicant_id: user.jobseeker.id,
       listing_id: parseInt(req.params.id),
     });
-    // sendApplicationAlert(newApplication.id)
+    // sendApplicationAlert(newApplication.id);
     res.status(200).json(newApplication);
   } catch (err) {
     console.log(err);
