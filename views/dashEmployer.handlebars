@@ -1,0 +1,74 @@
+{{> nav}}
+
+<main>
+    <section id="dashboard">
+        <div class="container-full h-100 d-flex">
+            <div class="dashboard-nav">
+                <div class="dashboard-profile-box">
+                    <h2>Welcome, <span>{{firstName}}</span></h2>
+                </div>
+                <div class="dashboard-main-nav">
+                    <ul>
+                        <li>
+                            <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/post"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a>
+                        </li>
+                        <li>
+                            <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-main-page">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="my-jobs">
+                            <h2>My Jobs</h2>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover align-middle">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Job Title</th>
+                                            <th>Location</th>
+                                            <th>Date Posted</th>
+                                            <th>Work Type</th>
+                                            <th class="text-center">Applications</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each joblisting}}
+                                        <tr>
+                                            <td>
+                                                <h3><a href="/job/{{id}}">{{jobTitle}}</a></h3>
+                                                <p>{{../companyName}}</p>
+                                            </td>
+                                            <td>{{jobLocation}}</td>
+                                            <td>{{format_date date_created}}</td>
+                                            <td>{{workLoad}}</td>
+                                            <td class="text-center">4</td>
+                                            <td>
+                                                <a href="#" class="continue-btn"><i
+                                                        class="fas fa-fw fa-arrow-circle-right"></i></a>
+                                                <a href="#" class="delete-btn"><i
+                                                        class="fas fa-fw fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> footer}}

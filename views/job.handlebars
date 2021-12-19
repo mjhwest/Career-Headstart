@@ -11,6 +11,11 @@
                         <li>
                             <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
                         </li>
+                        {{#if isEmployer}}
+                        <li>
+                            <a href="/post"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a>
+                        </li>
+                        {{/if}}
                         <li>
                             <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
                         </li>
@@ -29,7 +34,7 @@
                                 <div class="salary_jobtype">${{jobWage}} - {{workLoad}}</div>
                                 <div class="job-desc">
                                     <p>{{jobDescript}}</p>
-                                    <button id="apply" type="submit" class="btn">APPLY</button>
+                                    <button id="apply" type="submit" class="btn"><a href="/dashboard">APPLY</a></button>
                                 </div>
                             </div>
                         </div>
