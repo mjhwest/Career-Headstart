@@ -48,17 +48,36 @@
                                             v-on:blur="jobLocationBlured = true">
                                         <div class="invalid-feedback">A valid location is required!</div>
                                     </div>
-                                    <div class="forms-inputs mb-4"> <span>Wage/Salary</span> <input type="text"
+                                    <div class="forms-inputs mb-4"> <span>Offered Salary</span> <input type="text"
                                             v-model="jobWage"
                                             v-bind:class="{'form-control':true, 'is-invalid' : !validWage(jobWage) && jobWageBlured}"
                                             v-on:blur="jobWageBlured = true">
-                                        <div class="invalid-feedback">A valid wage/salary is required!</div>
+                                        <div class="invalid-feedback">A valid salary is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Industry</span> <input type="text"
+                                            v-model="industry"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validindustry(industry) && industryBlured}"
+                                            v-on:blur="industryBlured = true">
+                                        <div class="invalid-feedback">A valid industry is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Experience</span> <input type="text"
+                                            v-model="experience"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validexperience(experience) && experienceBlured}"
+                                            v-on:blur="experienceBlured = true">
+                                        <div class="invalid-feedback">A valid experience is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Qualification</span> <input type="text"
+                                            v-model="qualification"
+                                            v-bind:class="{'form-control':true, 'is-invalid' : !validqualification(qualification) && qualificationBlured}"
+                                            v-on:blur="qualificationBlured = true">
+                                        <div class="invalid-feedback">A valid qualification is required!</div>
                                     </div>
                                     <div class="forms-inputs mb-4"> <span>Job Type</span>
                                         <select v-model="workLoad" class="form-control form-select type-select">
                                             <option>Full Time</option>
                                             <option>Part Time</option>
                                             <option>Casual</option>
+                                            <option>Freelance</option>
                                         </select>
                                     </div>
                                     <div class="mb-3"> <button v-on:click.stop.prevent="submit" type="submit"

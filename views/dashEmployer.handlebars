@@ -41,19 +41,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{#each joblisting}}
+                                        {{#each applicationData}}
                                         <tr>
                                             <td>
-                                                <h3><a href="/job/{{id}}">{{jobTitle}}</a></h3>
+                                                <h3><a href="/job/{{joblisting.id}}">{{joblisting.jobTitle}}</a></h3>
                                                 <p>{{../companyName}}</p>
                                             </td>
-                                            <td>{{jobLocation}}</td>
-                                            <td>{{format_date date_created}}</td>
-                                            <td>{{workLoad}}</td>
-                                            <td class="text-center">{{../applicationCount}}</td>
+                                            <td>{{joblisting.jobLocation}}</td>
+                                            <td>{{format_date joblisting.date_created}}</td>
+                                            <td>{{joblisting.workLoad}}</td>
+                                            <td class="text-center">{{total_amount}}
+                                            </td>
                                             <td>
-                                                <a href="#" class="continue-btn"><i
-                                                        class="fas fa-fw fa-arrow-circle-right"></i></a>
                                                 <a href="/dashboard"><i class="fas fa-fw fa-trash-alt"
                                                         data-id="{{id}}"></i></a>
                                             </td>

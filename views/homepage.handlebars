@@ -45,16 +45,23 @@
                 <div class="col-sm-12">
                     <div class="job_listing">
                         <ul>
-                            {{#each_upto jobs 2 as |job|}}
+                            {{#each_upto jobs 3 as |job|}}
                             <li class="single-listing">
                                 <a href="/job/{{id}}">
                                     <span class="job_listing-position">
-                                        <h4>{{jobDescript}}</h4>
+                                        <h4>{{jobTitle}}</h4>
                                         <p>{{employer.companyName}}</p>
                                     </span>
                                     <span class="job_location">{{jobLocation}}</span>
-                                    <span class="job_type"><small
-                                            class="button-type part-time">{{workLoad}}</small></span>
+                                    {{#ifEquals workLoad "Full Time"}}
+                                    <span class="job_type"><small class="button-type fulltime">Full Time</small></span>
+                                    {{/ifEquals}}
+                                    {{#ifEquals workLoad "Casual"}}
+                                    <span class="job_type"><small class="button-type parttime">Casual</small></span>
+                                    {{/ifEquals}}
+                                    {{#ifEquals workLoad "Freelance"}}
+                                    <span class="job_type"><small class="button-type freelance">Freelance</small></span>
+                                    {{/ifEquals}}
                                 </a>
                             </li>
                             {{/each_upto}}

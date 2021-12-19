@@ -68,6 +68,7 @@ router.get("/job/:id", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    console.log(job);
     console.log(user);
     res.render("job", {
       ...job,
@@ -133,12 +134,17 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(user);
 
     if (user.isEmployer) {
       const joblisting = user.employer.joblistings;
 
-      const applicationData = await Application.findOne({
+      const applicationData = await Application.findAll({
+        include: [
+          {
+            model: JobListing,
+          },
+        ],
+        where: { listed_by: user.employer.id },
         attributes: [
           "listing_id",
           [
@@ -147,14 +153,19 @@ router.get("/dashboard", withAuth, async (req, res) => {
           ],
         ],
         group: ["listing_id"],
-        where: { listing_id: user.employer.id },
+        raw: true,
+        nest: true,
       });
+      console.log(applicationData);
 
-      const applicationCount = applicationData.get({ plain: true });
-      console.log(applicationCount.total_amount);
+      let total = 0;
+      if (applicationData === null) {
+        total = 0;
+      }
+
       res.render("dashEmployer", {
         ...user,
-        applicationCount: applicationCount.total_amount,
+        applicationData: applicationData,
         joblisting: joblisting,
         companyName: user.employer.companyName,
         logged_in: true,
