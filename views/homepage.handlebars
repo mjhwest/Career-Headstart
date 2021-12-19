@@ -45,7 +45,7 @@
                 <div class="col-sm-12">
                     <div class="job_listing">
                         <ul>
-                            {{#each jobs as |job|}}
+                            {{#each_upto jobs 2 as |job|}}
                             <li class="single-listing">
                                 <a href="/job/{{id}}">
                                     <span class="job_listing-position">
@@ -57,7 +57,7 @@
                                             class="button-type part-time">{{workLoad}}</small></span>
                                 </a>
                             </li>
-                            {{/each}}
+                            {{/each_upto}}
 
                         </ul>
                     </div>
