@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { JobListing } = require('../../models');
+const { JobListing, Application, JobSeeker, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req,res) => {
@@ -14,6 +14,32 @@ router.post('/', withAuth, async (req,res) => {
         res.status(400).json(err);
     }
 });
+
+router.post('/application/:id', async(req, res) => {
+    try {
+        
+        var query = {
+            where: {id: req.session.user_id},
+            include: [
+                { model: JobSeeker }
+            ]
+        }
+
+        const userData = await User.findOne(query)
+        const user = userData.get({plain:true})
+
+        const newApplication = await Application.create({
+            applicant_id: user.jobseeker.id,
+            listing_id: parseInt(req.params.id)
+        })
+        // sendApplicationAlert(newApplication.id)
+        res.status(200).json(newApplication);
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+});
+
 
 router.delete('/:id', withAuth, async (req,res) => {
     try {

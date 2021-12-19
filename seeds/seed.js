@@ -42,11 +42,6 @@ const seedDatabase = async() => {
         })
     }
 
-    const user = await JobSeeker.findByPk(1, {
-        include: [User, 'applications']
-    })
-    console.log(user.get({ plain: true }));
-
     process.exit(0)
 }
 
