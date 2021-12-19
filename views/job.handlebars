@@ -1,43 +1,91 @@
 {{> nav}}
+
 <main>
-    <section id="dashboard">
-        <div class="container-full h-100 d-flex">
-            <div class="dashboard-nav">
-                <div class="dashboard-profile-box">
-                    <h2>Welcome, <span>{{firstName}}</span></h2>
-                </div>
-                <div class="dashboard-main-nav">
-                    <ul>
-                        <li>
-                            <a href="/dashboard"><i class="fas fa-fw fa-cog"></i>Dashboard</a>
-                        </li>
-                        {{#if isEmployer}}
-                        <li>
-                            <a href="/post"><i class="fas fa-fw fa-plus-circle"></i>Post a Job</a>
-                        </li>
-                        {{/if}}
-                        <li>
-                            <a href="/profile"><i class="fas fa-fw fa-user"></i>My Profile</a>
-                        </li>
-                    </ul>
+    <section id="minibanner">
+        <div class="mini-banner">
+            <div class="container">
+                <div class="row">
+                    <h1>{{jobTitle}}</h1>
+                    <div class="job_details d-flex justify-content-center align-items-center">
+                        {{#ifEquals workLoad "Full Time"}}
+                        <span class="job_type"><small class="button-type fulltime">Full Time</small></span>
+                        {{/ifEquals}}
+                        {{#ifEquals workLoad "Casual"}}
+                        <span class="job_type"><small class="button-type parttime">Casual</small></span>
+                        {{/ifEquals}}
+                        {{#ifEquals workLoad "Freelance"}}
+                        <span class="job_type"><small class="button-type freelance">Freelance</small></span>
+                        {{/ifEquals}}
+
+                        <span class="job_location"><a href="#">{{jobLocation}}</a></span>
+                        <span class="job_categories"><a href="#">{{industry}}</a></span>
+                    </div>
                 </div>
             </div>
-
-            <div class="dashboard-main-page">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="job-details">
-                            <h2>{{jobTitle}}</h2>
-                            <div class="card job_single">
-                                <h3>{{employer.companyName}}</h3>
-                                <div class="job_location">{{jobLocation}}</div>
-                                <div class="salary_jobtype">${{jobWage}} - {{workLoad}}</div>
-                                <div class="job-desc">
-                                    <p>{{jobDescript}}</p>
-                                    <button id="apply" type="submit" class="btn"><a href="/dashboard">APPLY</a></button>
-                                </div>
-                            </div>
+        </div>
+    </section>
+    <section id="job-desc-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="job-desc">
+                        <div class="company_details">
+                            <h3>{{employer.companyName}}</h3>
                         </div>
+                        {{jobDescript}}
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="application_apply">
+                        <button v-on:click.stop.prevent="submit" type="submit" id="apply" class="btn">Apply for
+                            job</button>
+                    </div>
+                    <div class="job-overview">
+                        <h3>Job Overview</h3>
+                        <div class="job-salary"><strong>Offered Salary</strong> <br /> ${{jobWage}} </div>
+                        <div class="job-industry"><strong>Industry</strong><br />{{industry}}</div>
+                        <div class="job-experience"><strong>Experience</strong><br />{{experience}}</div>
+                        <div class="job-education"><strong>Qualification</strong><br />{{qualification}}</div>
+                    </div>
+
+                    <div class="related-jobs">
+                        <h3>Related Jobs</h3>
+                        <ul>
+                            <li class="related-listing">
+                                <a href="#" class="d-flex">
+                                    <span class="job_listing-position">
+                                        <h5>Back End Developer</h5>
+                                        <p>SAPOL</p>
+                                        <p class="job_location">Adelaide</p>
+                                    </span>
+                                    <span class="job_type "><small class="button-type fulltime">Full
+                                            Time</small></span>
+                                </a>
+                            </li>
+                            <li class="related-listing">
+                                <a href="#" class="d-flex">
+                                    <span class="job_listing-position">
+                                        <h5>Web Designer</h5>
+                                        <p>University of South Australia</p>
+                                        <p class="job_location">Adelaide</p>
+                                    </span>
+                                    <span class="job_type "><small class="button-type parttime">Part
+                                            Time</small></span>
+                                </a>
+                            </li>
+                            <li class="related-listing">
+                                <a href="#" class="d-flex">
+                                    <span class="job_listing-position">
+                                        <h5>Front End Developer</h5>
+                                        <p>Digital Arts</p>
+                                        <p class="job_location">Adelaide</p>
+                                    </span>
+                                    <span class="job_type "><small
+                                            class="button-type freelance">Freelance</small></span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

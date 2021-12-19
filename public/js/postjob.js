@@ -12,6 +12,12 @@ var app = new Vue({
       jobLocationBlured: false,
       jobWage: "",
       jobWageBlured: false,
+      industry: "",
+      industryBlured: false,
+      experience: "",
+      experienceBlured: false,
+      qualification: "",
+      qualificationBlured: false,
       workLoad: "",
     };
   },
@@ -22,11 +28,17 @@ var app = new Vue({
       this.jobDescriptBlured = true;
       this.jobLocationBlured = true;
       this.jobWageBlured = true;
+      this.industryBlured = true;
+      this.experienceBlured = true;
+      this.qualificationBlured = true;
       if (
         this.validJobtitle(this.jobTitle) &&
         this.validJobdescription(this.jobDescript) &&
         this.validWage(this.jobWage) &&
-        this.validLocation(this.jobLocation)
+        this.validLocation(this.jobLocation) &&
+        this.validindustry(this.industry) &&
+        this.validexperience(this.experience) &&
+        this.validqualification(this.qualification)
       ) {
         this.valid = true;
       }
@@ -45,16 +57,28 @@ var app = new Vue({
     },
 
     validWage: function (jobWage) {
-      //   if (!isNaN(jobWage)) {
-      //     return true;
-      //   }
-      if (jobWage != null && jobWage != /s/.test(jobWage)) {
+      if (!isNaN(jobWage)) {
         return true;
       }
     },
 
     validLocation: function (jobLocation) {
       if (jobLocation != null && jobLocation != /s/.test(jobLocation)) {
+        return true;
+      }
+    },
+    validindustry: function (industry) {
+      if (industry != null && industry != /s/.test(industry)) {
+        return true;
+      }
+    },
+    validexperience: function (experience) {
+      if (experience != null && experience != /s/.test(experience)) {
+        return true;
+      }
+    },
+    validqualification: function (qualification) {
+      if (qualification != null && qualification != /s/.test(qualification)) {
         return true;
       }
     },
@@ -68,6 +92,9 @@ var app = new Vue({
             jobDescript: this.jobDescript,
             jobWage: this.jobWage,
             jobLocation: this.jobLocation,
+            industry: this.industry,
+            experience: this.experience,
+            qualification: this.qualification,
             workLoad: this.workLoad,
           }),
           headers: { "Content-Type": "application/json" },

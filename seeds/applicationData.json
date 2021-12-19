@@ -1,13 +1,16 @@
 [{
         "applicant_id": 1,
-        "listing_id": 1
+        "listing_id": 1,
+        "listed_by": 1
     },
     {
         "applicant_id": 2,
-        "listing_id": 2
+        "listing_id": 2,
+        "listed_by": 2
     },
     {
         "applicant_id": 3,
-        "listing_id": 3
+        "listing_id": 3,
+        "listed_by": 3
     }
 ]

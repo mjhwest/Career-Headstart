@@ -5,7 +5,10 @@
         "jobDescript": "We need people to work hard!",
         "jobWage": "10000",
         "jobLocation": "South Austrlia",
-        "workLoad": "Casual "
+        "workLoad": "Casual",
+        "industry": "IT",
+        "experience": "1 year",
+        "qualification": "Graduate"
     },
     {
         "id": 2,
@@ -14,7 +17,10 @@
         "jobDescript": "We need people to work night work!",
         "jobWage": "15000",
         "jobLocation": "Melbourne",
-        "workLoad": "Casual "
+        "workLoad": "Casual",
+        "industry": "Mining",
+        "experience": "2 years",
+        "qualification": "No qualification"
     },
     {
         "id": 3,
@@ -23,6 +29,9 @@
         "jobDescript": "We need people to work during the day!",
         "jobWage": "20000",
         "jobLocation": "Tasmania",
-        "workLoad": "Full Time"
+        "workLoad": "Full Time",
+        "industry": "Construction",
+        "experience": "3 years",
+        "qualification": "Bachelor Degree"
     }
 ]
