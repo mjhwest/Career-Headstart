@@ -56,6 +56,14 @@ JobListing.belongsToMany(JobSeeker, {
     foreignKey: 'listing_id'
 });
 
+Application.belongsTo(JobSeeker, {
+    foreignKey: "applicant_id"
+})
+
+Application.belongsTo(JobListing, {
+    foreignKey: "listing_id"
+})
+
 // ---------------------------------------------
 
 module.exports = { User, Employer, JobSeeker, JobListing, Application }
