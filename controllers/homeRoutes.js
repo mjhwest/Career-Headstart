@@ -8,6 +8,7 @@ const {
 } = require("../models");
 const withAuth = require("../utils/auth");
 require("../utils/helpers");
+const sequelize = require("sequelize");
 
 router.get("/", async (req, res) => {
   try {
@@ -136,9 +137,24 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     if (user.isEmployer) {
       const joblisting = user.employer.joblistings;
-      console.log(joblisting);
+
+      const applicationData = await Application.findOne({
+        attributes: [
+          "listing_id",
+          [
+            sequelize.fn("count", sequelize.col("applicant_id")),
+            "total_amount",
+          ],
+        ],
+        group: ["listing_id"],
+        where: { listing_id: user.employer.id },
+      });
+
+      const applicationCount = applicationData.get({ plain: true });
+      console.log(applicationCount.total_amount);
       res.render("dashEmployer", {
         ...user,
+        applicationCount: applicationCount.total_amount,
         joblisting: joblisting,
         companyName: user.employer.companyName,
         logged_in: true,
@@ -167,6 +183,7 @@ router.get("/post", withAuth, async (req, res) => {
     });
     const user = userData.get({ plain: true });
     res.render("post", {
+      ...user,
       logged_in: req.session.logged_in,
       title: "Post a job",
     });
