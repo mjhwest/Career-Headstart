@@ -69,10 +69,20 @@ router.post("/application/:id", async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
+    var query = {
+      where: { id: req.session.user_id },
+      include: [{ model: Employer }],
+    };
+
+    const userData = await User.findOne(query);
+    const user = userData.get({ plain: true });
+
+    console.log(req.body);
+    console.log(user.employer.id);
     const jobData = await JobListing.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        id: req.body.id,
+        listed_by: user.employer.id,
       },
     });
 
