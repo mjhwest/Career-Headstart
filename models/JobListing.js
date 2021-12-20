@@ -11,6 +11,7 @@ JobListing.init(
       primaryKey: true,
       autoIncrement: true,
     },
+  
     listed_by: {
       type: DataTypes.INTEGER,
       references: {
@@ -18,6 +19,7 @@ JobListing.init(
         key: "id",
       },
     },
+  
     jobTitle: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,7 +27,7 @@ JobListing.init(
 
     jobDescript: {
       //text so the employer can write a big description for job.
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     jobWage: {
@@ -37,8 +39,8 @@ JobListing.init(
       allowNull: false,
     },
     workLoad: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false
     },
     industry: {
       type: DataTypes.STRING,
@@ -59,6 +61,7 @@ JobListing.init(
     },
   },
   {
+
     sequelize,
     timestamps: false,
     freezeTableName: true,

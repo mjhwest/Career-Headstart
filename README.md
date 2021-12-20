@@ -74,33 +74,39 @@ The user will first be presented with the landing page
 
 Once at the landing page the user can signup as a job seeker or employer, and fill out necessary fields. 
 
-    **JOB SEEKER**                                                                                       **EMPLOYER**
-![signup](/public/images/signupjob.png)                                                      ![empsign](/public/images/empsign.png)
+**JOB SEEKER SIGNUP**                                                                                      
+
+![signup](/public/images/signupjob.png)                                                      
 
 
 
+**EMPLOYER SIGNUP**
 
-**This section will look at Usage for JOBSEEKER**
+![empsign](/public/images/empsign.png)
+
+
+
+**This section will look at Usage for JOB SEEKER**
 
 Once the user has signed up as a job seeker they will be presented with a profile. Here they can edit their personal details, select 'Dashboard' (which will list jobs they have applied for), select Jobs (to see current jobs going) and Logout. 
 
 ![emppro](/public/images/emppro.png)
 
-If the user selects on "Jobs" they will be presented with current jobs that employers currently have listed. Here the user can see the Job Title, the company it belong too, the location of the job as the work load (casual, full-time, part-time). 
+If the user selects on "Jobs" (towards top of page) they will be presented with current jobs that employers currently have listed. Here the user can see the Job Title, the company it belongs to, the location of the job as the work load (casual, full-time, part-time). 
 
 ![currentjobs](/public/images/currentjobs.png)
 
-If the user selects a job they will be taken to a new page where the job will be listed (in this instance 'Night Shift Manager'). 
-Here they will be presented with the company name, a brief description of the company, and the job overview (salary, industry, experience and qualification required.)
+The user can then select a job and will be taken to a new page where the job will be listed (in this instance 'Night Shift Manager'). 
+Here they will be presented with the company name, a brief description of the position, and the job overview (salary, industry, experience and qualification required.)
 
 ![jobop](/public/images/jobop.png)
 
 The user can then select to apply for the job if they desire. Once they have hit apply, an email will be sent to the employer, informing them that the user has applied for the job and provide with employer with the users contact email. 
-Once applied the user will be sent to their personal dashboard where they can see all the jobs they have currently applied for. In this instance user (Adam) has only applied for 1 job
+Once applied the user will be sent to their personal dashboard where they can see all the jobs they have currently applied for. In this instance user (Adam) has only applied for 1 job. 
 
-![applied](/public/images/applied.png)
+It is important to note that a user (i.e. Adam) can only apply for a job once. i.e. once Adam has applied for the job Night Shift Manager he cannot apply for the job again. 
 
-The user can contiune to apply for more jobs (however, they will only be able to apply for 1 job once).
+![adamjob](/public/images/adamjob.png)
 
 
 
