@@ -33,9 +33,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{#each application}}
+                                    {{#each applications as |application|}}
                                     <tr>
-                                        <td><a href="/job/{{id}}">{{jobTitle}}</a></td>
+                                        <td><a href="/job/{{id}}">{{application.jobTitle}}</a></td>
                                         <td>{{jobLocation}}</td>
                                         <td>{{workLoad}}</td>
                                     </tr>

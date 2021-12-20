@@ -8,7 +8,7 @@ const {
 } = require("../models");
 const withAuth = require("../utils/auth");
 require("../utils/helpers");
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
 router.get("/", async (req, res) => {
   try {
@@ -115,68 +115,60 @@ router.get("/dashboard", withAuth, async (req, res) => {
       include: [
         {
           model: JobSeeker,
-          include: [
-            {
-              model: JobListing,
-              as: "applications",
-            },
-          ],
         },
         {
           model: Employer,
-          include: [
-            {
-              model: JobListing,
-            },
-          ],
         },
       ],
     });
-
     const user = userData.get({ plain: true });
-
+    console.log(user);
     if (user.isEmployer) {
-      const joblisting = user.employer.joblistings;
-
-      const applicationData = await Application.findAll({
-        include: [
-          {
-            model: JobListing,
-          },
-        ],
-        where: { listed_by: user.employer.id },
-        attributes: [
-          "listing_id",
-          [
-            sequelize.fn("count", sequelize.col("applicant_id")),
-            "total_amount",
+      const listings = await JobListing.findAll({
+        where: {
+          listed_by: user.employer.id,
+        },
+        include: {
+          model: Application,
+          attributes: [],
+        },
+        attributes: {
+          include: [
+            [
+              Sequelize.fn("count", Sequelize.col("applications.id")),
+              "applicationCount",
+            ],
           ],
-        ],
-        group: ["listing_id"],
-        raw: true,
-        nest: true,
+        },
+        group: ["JobListing.id"],
       });
-      console.log(applicationData);
-
-      let total = 0;
-      if (applicationData === null) {
-        total = 0;
-      }
+      console.log(listings);
+      const listingData = listings.map((l) => l.toJSON());
 
       res.render("dashEmployer", {
         ...user,
-        applicationData: applicationData,
-        joblisting: joblisting,
+        joblistings: listingData,
         companyName: user.employer.companyName,
         logged_in: true,
         title: "Dashboard",
       });
+
+      console.log(JSON.stringify(listingData, null, 4));
     } else {
+      const seekerData = await JobListing.findAll({
+        include: {
+          model: Application,
+          where: { applicant_id: user.jobseeker.id },
+        },
+        raw: true,
+        nest: true,
+      });
+      console.log(seekerData);
       const application = user.jobseeker.applications;
-      console.log(application);
+
       res.render("dashJobSeeker", {
         ...user,
-        application: application,
+        applications: seekerData,
         logged_in: true,
         title: "Dashboard",
       });
