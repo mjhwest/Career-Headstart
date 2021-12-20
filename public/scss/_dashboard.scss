@@ -1,0 +1,196 @@
+#dashboard{
+    min-height: calc(100vh - 119px - 116px);
+    background: $light-grey;
+    .h-100{
+    &.d-flex{
+        display: block !important;
+    }
+}
+    .dashboard-nav{
+        background-color: $secondary-color;
+        min-height: calc(100vh - 119px - 116px);
+        width: 15.625rem;
+        @include phone {
+            width: 100%;
+            min-height: auto;
+        }
+        .dashboard-profile-box{
+            padding: 2rem;
+            color: $plain-color;
+            text-align: center;
+            border-bottom: 1px solid $plain-color;
+            @include phone {
+                padding: 1rem;
+            }
+            h2{
+                font-size: 1.5rem;
+                line-height: 1.6;
+                span{
+                    font-size: 2rem;
+                }
+            }
+        }
+        .dashboard-main-nav{
+            padding: 2rem 1rem 1rem;
+            @include phone {
+                padding: 1rem .5rem .5rem;
+            }
+            ul{
+                @include phone {
+                    display: flex;
+                    justify-content: center;
+                }
+                li{
+                    border-radius: 3px;
+                    display: block;
+                    font-size: 14px;
+                    margin-bottom: .5rem;
+                    a{
+                        color: #fff;
+                        cursor: pointer;
+                        display: block;
+                        line-height: 1;
+                        padding: .8125rem 1.5rem;
+                        position: relative;
+                        @include phone {
+                            padding: .5rem;
+                        }
+                        i{
+                            padding-right: .5rem;
+                        }
+                    }
+                    &:hover{
+                        background-color: $primary-color;
+                    }
+                }
+            }
+        }
+        
+    }
+    .dashboard-main-page{
+        padding: 2rem;
+        flex: 1;
+        @include phone{
+            display: block;
+            padding: 1rem;
+        }
+        .job-alert, .job-applied, .my-jobs{
+            border: 1px solid $dark-grey;
+            background-color: $plain-color;
+            border-radius: .5rem;
+            padding: 1.5rem 1.5rem .5rem;
+            box-shadow: 0 5px 5px $dark-grey;
+            h2{
+                font-size: 1.5rem;
+                border-bottom: 3px solid $secondary-color;  
+                padding-bottom: .5rem;
+                margin-bottom: 1rem;
+            }
+            h3{
+                font-size: 1.2rem;
+            }
+        }
+        table{
+            tr{
+                border-bottom: 1px solid $dark;
+                a{
+                    color: $primary-color;
+                }
+            }
+        }
+        .post-jobs, .profile-page, .profile-title, .job-details{
+            padding: 0 1rem;
+            h2{
+                font-size: 1.5rem;
+                border-bottom: 3px solid $secondary-color;  
+                padding-bottom: .5rem;
+                margin-bottom: 1rem;
+            }
+            .profile-box{
+                h3{
+                    background-color: $secondary-color;
+                    margin-top: 1.5rem;
+                    padding: 1rem;
+                    color: $plain-color;
+                    margin-bottom: 0;
+                    border-radius: 0.25rem 0.25rem 0 0;
+                }
+                .card{
+                    border-radius: 0 0 0.25rem 0.25rem;
+                }
+            }
+            .card{
+                background-color: $plain-color;
+                padding: 3rem 2rem 1rem;
+            }
+            .forms-inputs {
+                position: relative;
+                span {
+                  position: absolute;
+                  top: -.925rem;
+                  left: 10px;
+                  background-color: $plain-color;
+                  padding: 5px 10px;
+                  font-size: 15px;
+                }
+                input, select {
+                  height: 3.625rem;
+                  border: 2px solid $light-grey;
+                  &:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border: 2px solid $dark;
+                  }
+                  &.is-invalid {
+                    border-color: $danger;
+                  }
+                }
+                textarea {
+                    border: 2px solid $light-grey;
+                    padding-top: 1rem;
+                    &:focus {
+                      box-shadow: none;
+                      outline: none;
+                      border: 2px solid $dark;
+                    }
+                    &.is-invalid {
+                      border-color: $danger;
+                    }
+                  }
+              }
+              .btn {
+                height: 3.125rem;
+                background: $primary-color;
+                color: $plain-color;
+                &:hover{
+                    background-color: $secondary-color;
+                }
+              }
+              .job_single{
+                  .job_location{
+                      font-size: 1.2rem;
+                      margin-bottom: .75rem;
+                  }
+                  .salary_jobtype{
+                      margin-bottom: 2rem;
+                  }
+                  .job-desc{
+                      p{
+                         margin-bottom: 1.25rem; 
+                         strong{
+                             font-weight: 700;
+                         }
+                      }
+                      ul{
+                          margin-bottom: 1.25rem;
+                          li{
+                              list-style: circle;
+                              margin-left: 1rem;
+                          }
+                      }
+                  }
+              }
+        }
+        
+    }
+}

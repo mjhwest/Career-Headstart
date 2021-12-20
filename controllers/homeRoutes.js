@@ -38,13 +38,12 @@ router.get("/jobs", async (req, res) => {
       include: [
         {
           model: Employer,
-          attributes: ["companyName"],
         },
       ],
     });
     const jobs = jobsData.map((job) => job.get({ plain: true }));
-
-    res.render("job", {
+    console.log(jobs);
+    res.render("jobs", {
       jobs,
       logged_in: req.session.logged_in,
       title: "Career HeadStart | Jobs",

@@ -7,13 +7,23 @@
     flex-direction: row;
     .logo {
       width: 4.6875rem;
+      display: flex;
     }
     .all-nav{
       display: flex;
       justify-content: flex-end;
       flex: 1;
     .navbar{
-        justify-content: left;
+        justify-content: right;
+        @include phone {
+          padding: 20px 0;
+        }
+        .navbar-collapse{
+          @include phone{
+            text-align: right;
+            margin-top: 1rem;
+          }
+        }
         .navbar-nav{
           .nav-item{
             a{
@@ -24,42 +34,27 @@
                 color: $secondary-color;
               }
             }
+            span{
+              vertical-align: middle;
+              &.avatar-img{
+                width: 1.5rem;
+                border-radius: 100%;
+                display: inline-block;
+                overflow: hidden;
+                img{
+                  width: 100%;
+                  display: block;
+                }
+              }
+              &.user-name{
+                vertical-align: middle;
+              }
+            }
           }
         }
         
     }
-    .extra-menu{
-      align-items: center;
-      flex-wrap: nowrap;
-      justify-content: right;
-      display: flex;
-      a{
-        margin-left: 10px;
-        display: inline-block;
-        color: $primary-color;
-        font-weight: 300;
-        line-height: 1.5rem;
-        &.user-account{
-          span{
-            vertical-align: middle;
-            &.avatar-img{
-              width: 1.5rem;
-              border-radius: 100%;
-              display: inline-block;
-              overflow: hidden;
-              img{
-                width: 100%;
-                display: block;
-              }
-            }
-            &.user-name{
-              vertical-align: middle;
-            }
-          }
-          
-        }
-      }
-    }
+    
   }
   }
 }
