@@ -10,8 +10,8 @@
     <!-- ====== End of Logo ====== -->
     <div class="all-nav">
       <!-- ====== Start of Main Menu ====== -->
-      <nav class="navbar navbar-expand-md">
-        <div class="container-fluid">
+      <nav class="navbar navbar-light navbar-expand-md">
+        
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,12 +26,14 @@
               </li>
               {{#if logged_in}}
               <li class="nav-item">
+                <a class="nav-link" href="/profile" class="user-account">
                 <span class="avatar-img">
                   <img alt=""
                     src="https://secure.gravatar.com/avatar/e1366724d9b66b00d71a6aa17ac47e02?s=40&#038;d=mm&#038;r=g"
                     class="avatar" />
                 </span>
-                <a class="nav-link" href="/profile" class="user-account">Profile</a>
+                <span class="user-name">Profile</span>
+                </a>
               </li>
               <li class="nav-item icon-power">
                 <a class="nav-link icon-power" id="logout" href="/">Logout</a>
@@ -46,7 +48,6 @@
               {{/if}}
             </ul>
           </div>
-        </div>
       </nav>
     </div>
   </div>

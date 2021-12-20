@@ -22,13 +22,13 @@
       position: relative;
       span {
         position: absolute;
-        top: -.725rem;
+        top: -.925rem;
         left: 10px;
         background-color: $plain-color;
         padding: 5px 10px;
         font-size: 15px;
       }
-      input {
+      input, select {
         height: 3.125rem;
         border: 2px solid $light-grey;
         &:focus {

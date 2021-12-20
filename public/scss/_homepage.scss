@@ -43,70 +43,92 @@ main {
     h1 {
       margin-bottom: 3rem;
     }
-    .job_listing {
-      ul {
-        border: 1px solid $dark;
-        border-radius: 6px;
-        li {
-          &.single-listing {
-            border-bottom: 1px solid $dark;
-            margin: 0;
-            padding: 1em;
+    
+  }
+  .job_listing {
+    & > ul {
+      border: 1px solid $dark;
+      border-radius: 6px;
+      li {
+        &.single-listing {
+          border-bottom: 1px solid $dark;
+          margin: 0;
+          padding: 1em;
+          position: relative;
+          @include phone {
+            text-align: center;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: $font-color;
+          @include phone {
+            display: block;
+          }
+          .job_listing-position {
+              border: none;
+              flex-basis: 50%;
+              @include phone{
+                flex-basis: 100%;
+              }
+              h4{
+                  color: $primary-color;
+              }
+              p{
+                  font-size: .875rem;
+                  color: $dark;
+              }
+          }
+          .job_location {
             position: relative;
-            &:last-child {
-              border-bottom: none;
+            flex-basis: 30%;
+            color: $secondary-color;
+            font-size: .875rem;
+            @include phone{
+              flex-basis: 100%;
+              padding: 1rem 0;
+              display: block;
+            }
+            &:before {
+              font-family: "Font Awesome 5 Free"; 
+              font-weight: 900; 
+              content: "\f3c5";
+              padding-right: 1rem;
+              color: $font-color;
             }
           }
-          a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: $font-color;
-            .job_listing-position {
-                border: none;
-                flex-basis: 50%;
-                h4{
-                    color: $primary-color;
-                }
-                p{
-                    font-size: .875rem;
-                    color: $dark;
-                }
-            }
-            .job_location {
-              position: relative;
-              flex-basis: 30%;
-              color: $secondary-color;
-              font-size: .875rem;
-              &:before {
-                font-family: "Font Awesome 5 Free"; 
-                font-weight: 900; 
-                content: "\f3c5";
-                padding-right: 1rem;
-                color: $font-color;
+          .job_type {
+              flex-basis: 15%;
+              @include phone{
+                flex-basis: 100%;
               }
-            }
-            .job_type {
-                flex-basis: 15%;
-              .button-type {
-                padding: 0.5rem 2rem;
-                border-radius: 5px;
-                color: $plain-color;
-                font-size: .875rem;
-                text-transform: uppercase;
-                width: 100%;
-                text-align: center;
-                display: block;
-                &.part-time {
-                  background-color: $medium-aquamarine;
-                  opacity: .8;
-                }
-                &.full-time {
-                  background-color: $vivid-tangerine;
-                }
-                &.freelance {
-                  background-color: $orange-yellow;
-                }
+            .button-type {
+              padding: 0.5rem 1rem;
+              border-radius: 5px;
+              color: $plain-color;
+              font-size: .875rem;
+              text-transform: uppercase;
+              width: 100%;
+              text-align: center;
+              display: block;
+              @include phone{
+                max-width: 15.625rem;
+                margin: auto;
+              }
+              &.parttime {
+                background-color: $medium-aquamarine;
+                opacity: .8;
+              }
+              &.fulltime {
+                background-color: $vivid-tangerine;
+              }
+              &.freelance {
+                background-color: $orange-yellow;
               }
             }
           }
