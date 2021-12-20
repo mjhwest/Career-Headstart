@@ -36,6 +36,7 @@ There were a number of problems that had to be resolved in order to successfuly 
 
  To view [career headstart and see how it works please click here](https://career-head-start.herokuapp.com/)
 
+
  ------------------------------------------------------------------------------
 
 ## Table of Contents
@@ -88,7 +89,6 @@ Once the user has signed up as a job seeker they will be presented with a profil
 If the user selects on "Jobs" they will be presented with current jobs that employers currently have listed. Here the user can see the Job Title, the company it belong too, the location of the job as the work load (casual, full-time, part-time). 
 
 ![currentjobs](/public/images/currentjobs.png)
-
 
 If the user selects a job they will be taken to a new page where the job will be listed (in this instance 'Night Shift Manager'). 
 Here they will be presented with the company name, a brief description of the company, and the job overview (salary, industry, experience and qualification required.)
