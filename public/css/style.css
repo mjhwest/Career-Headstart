@@ -199,6 +199,9 @@ a {
 }
 .main-header .header-container .logo {
   width: 4.6875rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .main-header .header-container .all-nav {
   display: -webkit-box;
@@ -212,9 +215,20 @@ a {
   flex: 1;
 }
 .main-header .header-container .all-nav .navbar {
-  -webkit-box-pack: left;
-  -ms-flex-pack: left;
-  justify-content: left;
+  -webkit-box-pack: right;
+  -ms-flex-pack: right;
+  justify-content: right;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .main-header .header-container .all-nav .navbar {
+    padding: 20px 0;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .main-header .header-container .all-nav .navbar .navbar-collapse {
+    text-align: right;
+    margin-top: 1rem;
+  }
 }
 .main-header .header-container .all-nav .navbar .navbar-nav .nav-item a {
   color: #0f4e7b;
@@ -223,34 +237,15 @@ a {
 .main-header .header-container .all-nav .navbar .navbar-nav .nav-item a:hover {
   color: #005fae;
 }
-.main-header .header-container .all-nav .extra-menu {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: right;
-  -ms-flex-pack: right;
-  justify-content: right;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.main-header .header-container .all-nav .extra-menu a {
-  margin-left: 10px;
-  display: inline-block;
-  color: #0f4e7b;
-  font-weight: 300;
-  line-height: 1.5rem;
-}
-.main-header .header-container .all-nav .extra-menu a.user-account span {
+.main-header .header-container .all-nav .navbar .navbar-nav .nav-item span {
   vertical-align: middle;
 }
 .main-header
   .header-container
   .all-nav
-  .extra-menu
-  a.user-account
+  .navbar
+  .navbar-nav
+  .nav-item
   span.avatar-img {
   width: 1.5rem;
   border-radius: 100%;
@@ -260,8 +255,9 @@ a {
 .main-header
   .header-container
   .all-nav
-  .extra-menu
-  a.user-account
+  .navbar
+  .navbar-nav
+  .nav-item
   span.avatar-img
   img {
   width: 100%;
@@ -270,8 +266,9 @@ a {
 .main-header
   .header-container
   .all-nav
-  .extra-menu
-  a.user-account
+  .navbar
+  .navbar-nav
+  .nav-item
   span.user-name {
   vertical-align: middle;
 }
@@ -323,6 +320,11 @@ main .job_listing > ul li.single-listing {
   padding: 1em;
   position: relative;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  main .job_listing > ul li.single-listing {
+    text-align: center;
+  }
+}
 main .job_listing > ul li.single-listing:last-child {
   border-bottom: none;
 }
@@ -338,10 +340,21 @@ main .job_listing > ul li a {
   align-items: center;
   color: #797979;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  main .job_listing > ul li a {
+    display: block;
+  }
+}
 main .job_listing > ul li a .job_listing-position {
   border: none;
   -ms-flex-preferred-size: 50%;
   flex-basis: 50%;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  main .job_listing > ul li a .job_listing-position {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
 }
 main .job_listing > ul li a .job_listing-position h4 {
   color: #0f4e7b;
@@ -357,6 +370,14 @@ main .job_listing > ul li a .job_location {
   color: #005fae;
   font-size: 0.875rem;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  main .job_listing > ul li a .job_location {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    padding: 1rem 0;
+    display: block;
+  }
+}
 main .job_listing > ul li a .job_location:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -368,8 +389,14 @@ main .job_listing > ul li a .job_type {
   -ms-flex-preferred-size: 15%;
   flex-basis: 15%;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  main .job_listing > ul li a .job_type {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+}
 main .job_listing > ul li a .job_type .button-type {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   color: #fff;
   font-size: 0.875rem;
@@ -377,6 +404,12 @@ main .job_listing > ul li a .job_type .button-type {
   width: 100%;
   text-align: center;
   display: block;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  main .job_listing > ul li a .job_type .button-type {
+    max-width: 15.625rem;
+    margin: auto;
+  }
 }
 main .job_listing > ul li a .job_type .button-type.parttime {
   background-color: #60d394;
@@ -403,16 +436,28 @@ footer {
   padding: 3rem 0;
   color: #fff;
 }
-footer .copyright {
+footer .copyright .copyright_text {
   font-size: 0.875rem;
   vertical-align: bottom;
 }
-footer .copyright a {
+@media (min-width: 320px) and (max-width: 767px) {
+  footer .copyright .copyright_text {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+footer .copyright .copyright_text a {
   color: #ffd97d;
 }
 footer .social-btns {
   font-size: 1.25rem;
   vertical-align: top;
+  text-align: right;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  footer .social-btns {
+    text-align: center;
+  }
 }
 footer .social-btns a {
   color: #fff;
@@ -491,16 +536,32 @@ footer .social-btns a {
   min-height: calc(100vh - 119px - 116px);
   background: #eee;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .h-100.d-flex {
+    display: block !important;
+  }
+}
 #dashboard .dashboard-nav {
   background-color: #005fae;
   min-height: calc(100vh - 119px - 116px);
   width: 15.625rem;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .dashboard-nav {
+    width: 100%;
+    min-height: auto;
+  }
 }
 #dashboard .dashboard-nav .dashboard-profile-box {
   padding: 2rem;
   color: #fff;
   text-align: center;
   border-bottom: 1px solid #fff;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .dashboard-nav .dashboard-profile-box {
+    padding: 1rem;
+  }
 }
 #dashboard .dashboard-nav .dashboard-profile-box h2 {
   font-size: 1.5rem;
@@ -511,6 +572,21 @@ footer .social-btns a {
 }
 #dashboard .dashboard-nav .dashboard-main-nav {
   padding: 2rem 1rem 1rem;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .dashboard-nav .dashboard-main-nav {
+    padding: 1rem 0.5rem 0.5rem;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .dashboard-nav .dashboard-main-nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
 }
 #dashboard .dashboard-nav .dashboard-main-nav ul li {
   border-radius: 3px;
@@ -523,8 +599,13 @@ footer .social-btns a {
   cursor: pointer;
   display: block;
   line-height: 1;
-  padding: 13px 25px;
+  padding: 0.8125rem 1.5rem;
   position: relative;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .dashboard-nav .dashboard-main-nav ul li a {
+    padding: 0.5rem;
+  }
 }
 #dashboard .dashboard-nav .dashboard-main-nav ul li a i {
   padding-right: 0.5rem;
@@ -537,6 +618,12 @@ footer .social-btns a {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #dashboard .dashboard-main-page {
+    display: block;
+    padding: 1rem;
+  }
 }
 #dashboard .dashboard-main-page .job-alert,
 #dashboard .dashboard-main-page .job-applied,
@@ -631,7 +718,7 @@ footer .social-btns a {
 #dashboard .dashboard-main-page .profile-title .forms-inputs select,
 #dashboard .dashboard-main-page .job-details .forms-inputs input,
 #dashboard .dashboard-main-page .job-details .forms-inputs select {
-  height: 3.125rem;
+  height: 3.625rem;
   border: 2px solid #eee;
 }
 #dashboard .dashboard-main-page .post-jobs .forms-inputs input:focus,
@@ -662,6 +749,7 @@ footer .social-btns a {
 #dashboard .dashboard-main-page .profile-title .forms-inputs textarea,
 #dashboard .dashboard-main-page .job-details .forms-inputs textarea {
   border: 2px solid #eee;
+  padding-top: 1rem;
 }
 #dashboard .dashboard-main-page .post-jobs .forms-inputs textarea:focus,
 #dashboard .dashboard-main-page .profile-page .forms-inputs textarea:focus,
@@ -931,11 +1019,13 @@ footer .social-btns a {
   content: "\f19d";
 }
 
+.related-jobs {
+  margin-bottom: 3rem;
+}
 .related-jobs h3 {
   border-bottom: 3px solid #0f4e7b;
   margin-bottom: 1.5rem;
 }
-
 .related-jobs ul li {
   border-bottom: 1px solid #eee;
   margin-top: 1rem;
