@@ -167,7 +167,8 @@ If you would like to contribute to the project please either the collaborators:
 ------------------------------------------------------------------------------
 
 ## License
-This project is released under the [MIT LICENSE](ADD LINK TO LICENSE IN GIT REPO HERE).
+
+This project is released under the [MIT LICENSE](https://github.com/mjhwest/career-headstart/blob/main/LICENSE).
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
